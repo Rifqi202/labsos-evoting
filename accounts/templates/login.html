@@ -1,0 +1,89 @@
+<!doctype html>
+<!-- {% load static %} -->
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Multiple Login</title>
+    <style>
+      #id_username {
+        height: 22px;
+        width: 225px;
+        border-radius: 5px;
+        margin-top: 5px;
+      }
+      #id_password{
+        height: 22px;
+        width: 225px;
+        border-radius: 5px;
+        margin-top: 5px;
+      }
+      .kiri img{
+        float: left; width: 60px; height:55px; margin-left: 10px; margin-top: 10px; border-radius: 5px;
+      }
+      .kiri h1{
+        float: left; font-size: 23px; margin-top: 25px; margin-left: 10px; color: white;
+      }
+      .content{
+        background-color: #0275FC; height: 510px; align-content: center; padding-top: 10%; border-radius: 10px;
+      }
+      .menu{
+        background-color:white; height: 75%; width: 90%; border-radius: 15px; margin-left: auto; margin-right:auto; display: flex;
+      }
+      .tengah{
+        width: 50%;
+      }
+      .tengah img{
+        width: 285px; height: 260px; margin-left: auto; margin-right: auto; display: block; margin-top: 65px; border-radius: 10px;
+      }
+      .box-login{
+        text-align: center; width: 50%; background-color: white; border-radius: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kiri">
+      <img src="https://saltwire.imgix.net/video-saturday-is-decision-day-for-municipal-elections-in-cape-breton-7.jpg?cs=srgb&fit=crop&h=568&w=847&dpr=1&auto=format%2Ccompress%2Cenhance"alt="">
+      <h1>E-Voting</h1>
+    </div>
+  <div class="content">
+    
+    <div class="menu">
+      <div class="tengah">
+        <img src="https://saltwire.imgix.net/video-saturday-is-decision-day-for-municipal-elections-in-cape-breton-7.jpg?cs=srgb&fit=crop&h=568&w=847&dpr=1&auto=format%2Ccompress%2Cenhance"alt="" >
+      </div>
+      <div class="box-login">
+              <span>
+                {% if msg %}
+                    {{ msg | safe }}
+                {% else %}
+                    <h1 style="margin-top: 45px;">E-Voting</h1>
+                {% endif %}
+              </span>
+                <form  method="post">
+                    {% csrf_token %}
+                  <div>
+                    <label for="username" style="font-size: 18px;">Username</label><br>
+                    {{ form.username }}<br><br>
+                  </div>
+                  <div>
+                    <label for="username" style="font-size: 18px;">Password</label><br>
+                    {{ form.password }}<br><br>
+                  </div>
+
+                    <input type="submit" value="Login" style="width: 225px;  height: 30px; font-size: 15px; margin-top: 15px; border-radius: 5px; background-color: #0275FC; color: white; ">
+                </form>
+                <div>
+                    <h2><a href="{% url 'register' %}"><button style="width: 225px;  height: 30px; font-size: 15px; margin-top: 5px; border-radius: 5px; background-color: green; color: white;">
+                        Register</button></a></h2>
+                </div>
+      </div>    
+    </div>
+  </div>
+
+
+    
+  </body>
+</html>

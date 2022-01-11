@@ -1,0 +1,166 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+
+<style>
+    .tabel{
+        height: 35px;
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding-left: 8px;
+        font-size: 17px;
+    }
+
+    #popup {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0,.7);
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    visibility: hidden;
+    }
+
+    .window {
+    width: 700px;
+    height: 370px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    padding-top: 5px;
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 20%;
+    }
+    .window h2 {
+    margin: 30px 0 0 0;
+    }
+    /* Button Close */
+    .close-button {
+    width: 3%;
+    height: 6%;
+    line-height: 23px;
+    background: #000;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    display: block;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    position: absolute;
+    top: -10px;
+    right: -10px;	
+    }
+
+    /* Memunculkan Jendela Pop Up*/
+    #popup:target {
+    visibility: visible;
+    }
+</style>
+<section>
+    
+    <div>
+        <div style="margin-top: 30px; margin-left:17%;">
+            <h2>Data Panitia</h2>
+            <a href="#popup"><button style=" margin-top:20px; margin-left:850px; border: none;width: 10%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;"> Tambah </button>
+            </a>
+                    {% if messages %}
+                    {% for message in messages %}
+                        <div style="background-color: rgb(228, 31, 31); opacity: 80%; text-align: center; font-size: 20px; color: azure;" {% if message.tags %} class="alert alert-{{ message.tags }} absolute"{% endif %}>{{ message }}</div>
+                    {% endfor %}
+                    {% endif %}
+                <table class="tabel" style="width: 90%; border-collapse: collapse; margin-top:20px;">
+                <thead>    
+                <tr class="tabel" style="text-align: center; margin-top:40px;">
+                        <th scope="col" class="tabel">No</th>
+                        <th scope="col" class="tabel">Nama</th>
+                        <th scope="col" class="tabel">Akses</th>
+                        <th scope="col" class="tabel">Action</th>
+                </tr>
+                </thead>
+                    {% for d in pemilih %} 
+                    <tbody>
+                    <tr class="tabel">
+                        <td class="tabel" style="text-align: center;">{{forloop.counter}}</td>
+                        <td class="tabel">{{d.namapanitia}}</td>
+                        <td class="tabel" style="text-align: center;"></td>
+                        <td style="align-items: center; text-align: center; font-size: 25px;">
+                        <a href="/dashadmin/editpemilih/{{d.id}}/edit"><i class='bx bxs-message-square-edit' style="color:#00ad04;"  ></i></a>
+                        <a href="#popuphapus"><i class='bx bxs-trash' style='color:#ff0303'  ></i></a>
+                        <div id="popuphapus">
+                            <div class="windowhapus">
+                                <a href="#" class="close-buttonhapus" title="Close" style="font-size: 15px;">X</a>
+                                <h1 style="font-size: 80%; margin-bottom: 0; margin-top: 0;">Apa Anda Ingin Menghapusnya?</h1>
+                                <div style="margin-bottom: 0; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; color: blue; margin-top: 7px; margin-bottom: 7px;">{{d.namapemilih}}</div>
+                                <a href="{{d.id}}/delete">
+                                
+                                <button class="btn-hapus">Ya</button></a>
+                                </div>
+                    
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    {% endfor %}
+                    </tbody>   
+                </table>
+        </div>
+
+<!-- ====================== POP UP TAMBAH PANITIA ============================================= -->
+        <div id="popup">
+            <div class="window">
+                <div style="margin-left: 0;">
+                    <a href="#" class="close-button" title="Close">X</a>
+                    <h2>Tambahkan Data Panitia</h2>
+                    {% if messages %}
+                    {% for message in messages %}
+                        <div style="background-color: aqua; opacity: 80%;" {% if message.tags %} class="alert alert-{{ message.tags }} absolute"{% endif %}>{{ message }}</div>
+                    {% endfor %}
+                    {% endif %}
+                    <form method="POST" action="">
+                    {% csrf_token %}
+                    <table style="margin-left: 5px;">
+                        <tr>
+                            <td>Nama</td>
+                            <td>:</td>
+                            <td><input type="text" id="namapanitia" name="namapanitia" placeholder="Nama Panitia" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+                        </tr>
+                    <tr>
+                        <td> Username </td>
+                        <td>:</td>
+                        <td> <input type="text" id="username" name="username" placeholder="Username" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+                    </tr>
+                    <tr>
+                        <td> Email  </td>
+                        <td>:</td>
+                        <td> <input type="text" id="emailpanitia" name="emailpanitia" placeholder="Email" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+                    </tr>
+                    <tr>
+                        <td> Password </td>
+                        <td>:</td>
+                        <td> <input type="password" id="password" name="password" placeholder="Password" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+                    </tr>
+                    <td >
+                        
+                        <button style=" margin: top 30px; margin-left:330px; border: none;width: 15%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;" type="submit" name="submit"> Tambah </button>
+                        <a href="#"><button style=" margin-top:30px; margin-left:20px;border: none;width: 15%; height:30px;border-radius:5px; background-color:#fd810d; font-size:15px; color:white;"> Kembali </button>
+                        </a>
+                    </td>
+                    </tr>
+                    </table>
+                    
+                    </form>
+                </div>
+                
+                    
+            </div>
+                
+        </div>
+    
+
+    </div>
+
+</section>
+
+{% endblock %}

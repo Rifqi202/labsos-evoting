@@ -1,0 +1,63 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+
+<section>
+    <div>
+        
+        <div class="conten">
+            <div class="row">
+                <div style="margin-top: 5px; margin-right:20px;">
+                    <form id="form">
+                        <input style= "width: 40%;  height:25px; margin-left: 20px; margin-top:15px; border-radius:5px" type="text" id="judul" name="judul" placeholder=" Masukkan Judul Pemilihan">
+                        <button type="submit" style="border: none;width: 10%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;"> Tambah </button>
+                    </form>
+                </div>
+            </div>
+            <div class="flex-container">
+                <div style="padding: 10px; margin-top:20px; margin-left:20px;border-radius:1px; background-color:#0275FC; overflow: auto; height: 50px; width: 200px; text-align: left;color:white">
+                    {{jml_pemilih}} <br>Jumlah Pemilih</div>
+                <div style="padding: 10px; margin-top:20px; margin-left:20px;border-radius:1px; background-color:hsl(115, 93%, 43%); overflow: auto; height: 50px; width: 200px; text-align: left; color:white">
+                    {{jml_kandidat}} <br> Jumlah Kandidat</div>
+                <div style="padding: 10px; margin-top:20px; margin-left:20px;border-radius:1px; background-color:#c25e16; overflow: auto; height: 50px; width: 200px;text-align: left;color:white;">
+                    0 <br> Sudah Memilih</div>
+                <div style="padding: 10px; margin-top:20px; margin-left:20px;border-radius:1px; background-color:#fd2b06; overflow: auto; height: 50px; width: 200px; text-align: left;color:white">
+                    0 <br> Belum Memilih</div>
+            </div>  
+            <div style="font-size:20px; font-weight:bold;height:25x; margin-top: 20px; margin-left:18%; color:black; "> Grafik Hasil Perolehan Suara </div>   
+        </div>
+        <div>
+        <div style="width: 800px; height:  400px; margin-top: 20px; margin-left: 18%; border:1px solid black;">
+            <canvas id="myChart" style="margin-top: 1px; width:50%; max-width:720px;"></canvas>
+            <script>
+            var xValues = ["No.1", "No.2","No.3","No.4"];
+            var yValues = [100, 48,28,67, 1];
+            var barColors = ["#c25e16", "#054e2c","#fd2b06","#0275FC"];
+            new Chart("myChart", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                display: true,
+                }
+            }
+            });
+            </script>
+                <div class="grid-container" style="display: grid;  grid-template-columns: auto auto auto; justify-content: center;  margin-top: 20px;">    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <img src="media/images/avatar.png" alt=""> -->
+    </div>
+</section>
+
+{% endblock %}

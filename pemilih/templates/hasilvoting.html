@@ -1,0 +1,133 @@
+{% extends "dashboard2.html" %}
+
+{% block content %}
+
+<section>
+    <style>
+        .div1 {
+            width: 1130px; height: 700px; position: absolute; 
+        }
+        .div2 {
+            width: 750px; height:80px; padding: 5px; margin-left: 25%;  margin-top: 15px; border: 1px solid black; border-radius: 5px; align-items: center; 
+        }
+        .div2 h4 {
+            align-items: center; text-align: center; font-size: 15px; line-height: 20px;
+        }
+        .divgrafik {
+            width: 1100px; height:  457px; margin-top: 10px; margin-left: 10%; border:1px solid black;
+        }
+        .divgrafik h3{
+            text-align: center; margin-top: 20px;
+        }
+        .div4 {
+            width: 1000px; height: 250px; border: 1px solid black; margin-left: auto; margin-right: auto; margin-top: 20px;
+        }
+        .div5 {
+            display: grid;  grid-template-columns: auto auto auto; justify-content: center;  margin-top: 20px;
+        }
+        .boxfoto {
+            width: 200px; height: 100px; text-align: center; border: 1px solid black;  display: block; margin-left: auto; margin-right: 100px; 
+        }
+        p {
+            font-weight: bold;
+        }
+        img {
+            width: 85px; height: 100px; float: left; border-right: 1px solid black;
+        }
+        .div6 h3 {
+            margin-left: 20px; margin-top: 20px; margin-bottom: 10px;
+        }
+        input {
+            width: 550px; height: 25px; border: 1px solid black; border-radius: 5px;
+        }
+        .div6 button{
+            width: 75px; height: 30px;border-radius: 5px; font-weight: bold; color: white; background-color: #00a508;
+        }
+        #popup{
+            margin-left: 210px; width: 1130px; height: 100%; position: fixed; background: rgba(0,0,0,.5); top: 0; left: 0; z-index: 9999; visibility: hidden;
+        }
+        .window {
+            width: 500px; height: 125px; background: #fff; border-radius: 10px; position: relative; padding: 5px; text-align: center; margin-top: 10%; margin-left: 27%;
+        }
+        #popup:target {
+            visibility: visible;
+        }
+        .close-button {
+            width: 21px; height: 22px; line-height: 23px; background: #000; border-radius: 50%; border: 3px solid #fff; display: block; text-align: center; color: #fff; text-decoration: none; position: absolute; top: 10px; right: 10px;	
+        }
+        
+    </style>
+</head>
+<body>
+    
+        <div>
+            <div class= "div1">
+                <div class="div2">
+                    <h4>
+                        Terima Kasih Anda telah membantu mensukseskan pemilihan ini dengan menggunakan hak pilih anda dengan baik. Semoga pilihan anda sesuai dengan keyakinan anda.
+                    </h4>
+                </div> 
+                <div class="divgrafik">
+                    <h3 class="content">Grafik Perolehan Suara</h3>
+                    <div class="div4">
+                        <canvas id="myChart" style="margin-top: 0; width:50%; max-width:500px"></canvas>
+                        <script>
+                        var xValues = ["No.1", "No.2"];
+                        var yValues = [52, 48, 10];
+                        var barColors = ["red", "green"];
+    
+                        new Chart("myChart", {
+                        type: "bar",
+                        data: {
+                            labels: xValues,
+                            datasets: [{
+                            backgroundColor: barColors,
+                            data: yValues
+                            }]
+                        },
+                        options: {
+                            legend: {display: false},
+                            title: {
+                            display: true,
+                            }
+                        }
+                        });
+                        </script>
+                        <div class="div5">
+                            <div class="boxfoto">
+                                <img src="https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png" alt="">
+                                <h3>No.1</h3>
+                                <p>(52 suara)</p>
+                            </div>
+                            <div class="boxfoto">
+                                <img src="https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png" alt="">
+                                <h3>No.2</h3>
+                                <p>(48 suara)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="div6">
+                    <h3>Kritik & Saran</h3>
+                    <form action="#popup" style="margin-left: 20px; margin-top: 0px;">
+                        <input type="text" placeholder="Kritik & Saran">
+                        <a href="#popup"><button>Submit</button></a>
+                    </form>
+                </div>
+                <div id="popup">
+                    <div class="window">
+                        <a href="#" class="close-button" title="Close">X</a>
+                        <h3 style="margin-top: 30px;">Terimakasih Atas Kritik & Saran Anda</h3>
+                            <a href="#"><button style="font-weight: bold; color: white; background-color: rgb(100, 98, 98); margin-top: 0px; width: 100px; height: 30px; border-radius: 5px;">
+                                Logout</button></a>
+                    
+                            
+                    </div>
+    
+                </div>
+                
+            
+            </div>
+        </div>
+</section>
+{% endblock %}

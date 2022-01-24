@@ -203,7 +203,7 @@
                   <td class="tabel" style="text-align: center;">{{d.5}}</td>
                   <!-- <td class="tabel" style="text-align: center;">{{d.password}}</td> -->
                   <td style="align-items: center; text-align: center; font-size: 25px;">
-                    <a href="/dashadmin/editpemilih/{{d.id}}/edit"><i class='bx bxs-message-square-edit' style="color:#00ad04;"  ></i></a>
+                    <a href="/panitia/editpemilih/{{d.id}}/edit"><i class='bx bxs-message-square-edit' style="color:#00ad04;"  ></i></a>
                     <a href="#popuphapus"><i class='bx bxs-trash' style='color:#ff0303'  ></i></a>
                     <div id="popuphapus">
                       <div class="windowhapus">
@@ -225,7 +225,106 @@
     </div>
 
     <!--========= FORM TAMBAH PEMILIH =========================  -->
-    
+    <div id="popup">
+      <div class="window">
+          <a href="#" class="close-button" title="Close">X</a>
+              <h2>Tambahkan Data kandidat</h2>
+              <form method="POST" action="" enctype="multipart/form-data">
+              {% csrf_token %}
+              
+              <table >
+                  <!-- <tr>
+                      <td>No</td>
+                      <td>:</td>
+                      <td><input type="number" id="nomerurut" name="nomerurut" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+                  </tr> -->
+                  <tr>
+                      <td>Nama</td>
+                      <td>:</td>
+                      <td><input type="text" id="namakandidat" name="namakandidat"  style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+                  </tr>
+              <tr>
+                  <td> NIK/NIM </td>
+                  <td>:</td>
+                  <td> <input type="number" id="NIK/NIM" name="NIK/NIM" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+              </tr>
+              <tr>
+                  <td> Alamat </td>
+                  <td>:</td>
+                  <td> <input type="text" id="alamat" name="alamat" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+              </tr>
+              <tr>
+                  <td> No.Handphone  </td>
+                  <td>:</td>
+                  <td> <input type="number" id="no.handphone" name="no.handphone" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+              </tr>
+              <tr>
+                  <td> Email </td>
+                  <td>:</td>
+                  <td><input type="email" id="email" name="email"  style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+              </tr>
+              
+          </table>
+              <tr>
+                  <td >
+                      <button style=" margin-top:30px; margin-left:115px; border: none;width: 15%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;" type="submit"> Tambah </button>
+                      <a href="/"><button style=" margin-top:30px; margin-left:20px;border: none;width: 15%; height:30px;border-radius:5px; background-color:#fd810d; font-size:15px; color:white;"> Kembali </button>
+                      </a>
+                  </td>
+              </tr>
+          </form>
+      </div>
+  </div>
+
+    <!-- ======POPUP EDIT=====-->
+    <div id="popupedit">
+      <div class="windowedit">
+          <a href="#" class="close-buttonhapus" title="Close">X</a>
+          <h1>Edit Pemilih</h1>
+          <table >
+            <!-- <tr>
+                <td>No</td>
+                <td>:</td>
+                <td><input type="number" id="nomerurut" name="nomerurut" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+            </tr> -->
+            <tr>
+                <td>Nama</td>
+                <td>:</td>
+                <td><input type="text" id="namakandidat" name="namakandidat"  style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+            </tr>
+            <tr>
+                <td> NIK/NIM </td>
+                <td>:</td>
+                <td> <input type="number" id="NIK/NIM" name="NIK/NIM" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+            </tr>
+            <tr>
+                <td> Alamat </td>
+                <td>:</td>
+                <td> <input type="text" id="alamat" name="alamat" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+            </tr>
+            <tr>
+                <td> No.Handphone  </td>
+                <td>:</td>
+                <td> <input type="number" id="no.handphone" name="no.handphone" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+            </tr>
+            <tr>
+                <td> Email </td>
+                <td>:</td>
+                <td><input type="email" id="email" name="email"  style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+            </tr>
+            
+        </table>
+            <tr>
+                <td >
+                    <button style=" margin-top:30px; margin-left:115px; border: none;width: 15%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;" type="submit"> Tambah </button>
+                    <a href="/"><button style=" margin-top:30px; margin-left:20px;border: none;width: 15%; height:30px;border-radius:5px; background-color:#fd810d; font-size:15px; color:white;"> Kembali </button>
+                    </a>
+                </td>
+            </tr>
+        </form>
+    </div>
+    </div>
+              
 
       <!-- ============ POPUP HAPUS ================ -->
       <div id="popuphapus">

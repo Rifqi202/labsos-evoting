@@ -1,0 +1,141 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+
+<style>
+    .content{
+        width: 1100px; height: 595px; position: absolute; right: 8px; border-bottom-right-radius: 15px; 
+    }
+    .boxprofil {
+        margin-top: 20px; width: 150px; height: 200px; float: left; text-align: center; align-items: center; border: 1px solid black; border-radius: 5px;
+    }
+    .boxprofil img{
+        margin-top: 5px; width: 100px; height:120px; border: 1px solid black;
+    }
+    .boxprofil h1{
+        margin-top: 5px; margin-bottom: 0;
+    }
+    .boxprofil h3{
+        margin-top: 5px; font-family: 'Times New Roman', Times, serif;
+    }
+    .biodata{
+        margin-top: 20px; margin-left:17%;
+    }
+    
+    table {
+        border: 1px solid black; border-collapse: collapse; font-size: 17px; height: 45px; width: 100%;
+    }
+    .profil{
+        border: 1px solid black; border-collapse: collapse; font-size: 17px; height: 30px; text-align: center;
+    }
+    button{
+        margin-top:20px; margin-left:990px; width: 70px; height:30px; width:100px;border-radius: 10px; background-color:#0275FC; color: white; font-weight: bold;
+    }
+    
+    
+
+</style>
+
+<section>
+    <div>
+        <div class="content">
+            
+                    <!-- foto kandidat --> 
+                    <div class="boxprofil">
+                        <h1>{{data.nomerurut}}</h1>
+                        <img src="https://cdn.icon-icons.com/icons2/2506/PNG/512/user_icon_150670.png" alt="">
+                        <h3>{{data.namakandidat}}</h3>
+                    </div> 
+                    
+    <div class="biodata">
+        
+            <table class="tabel">
+              <thead> 
+                <tr>
+                    <td style="border: 1px solid black; border-collapse: collapse; font-size: 17px; height: 36px;  width:15%; text-align: center;">
+                        No</td>
+                    <td class="profil">{{data.nomerurut}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; border-collapse: collapse; font-size: 17px; height: 36px;  width:15%; text-align: center;">
+                        Nama</td>
+                  <td class="profil">{{data.namakandidat}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; border-collapse: collapse; font-size: 17px; height: 36px;  width:15%; text-align: center;">
+                        Tempat lahir</td>
+                    <td class="profil">{{data.tempatlahir}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; border-collapse: collapse; font-size: 17px; height: 36px;  width:15%; text-align: center;">
+                        Tanggal lahir</td>
+                    <td class="profil">{{data.tanggallahir}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; border-collapse: collapse; font-size: 17px; height: 36px;  width:15%; text-align: center;">
+                        Alamat</td>
+                    <td class="profil">{{data.alamat}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; border-collapse: collapse; font-size: 17px; height: 36px;  width:15%; text-align: center;">
+                        Pengalaman</td>
+                    <td class="profil">{{data.pengalaman}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; border-collapse: collapse; font-size: 17px; height: 36px;  width:15%; text-align: center;">
+                        Prestasi</td>
+                    <td class="profil">{{data.prestasi}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; border-collapse: collapse; font-size: 17px; height: 36px;  width:15%; text-align: center;">
+                        Visi</td>
+                    <td class="profil">{{data.visi}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; border-collapse: collapse; font-size: 17px; height: 36px;  width:15%; text-align: center;">
+                        Misi</td>
+                    <td class="profil">{{data.misi}}</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; border-collapse: collapse; font-size: 17px; height: 36px;  width:15%; text-align: center;">
+                        Program kerja</td>
+                    <td class="profil">{{data.programkerja}}</td>
+                </tr>
+            </thead>
+        </table>
+    </div>
+                <tr>
+                    <a href="/panitia/editkandidat/{{data.id}}/edit"><button >Edit</button></a>
+                </tr>
+                
+    </div>
+    
+    <!-- <div class="popupedit">
+        <div class="windowedit" style="">
+            <a href="#" class="close-button" title="Close">X</a>
+            <h2>Edit Kandidat</h2>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td><input type="text " name="namakandidat" value="{{data.namakandidat}}"></td>
+                    <input type="text " name="namakandidat" value="{{data.namakandidat}}">
+                    <input type="text " name="namakandidat" value="{{data.namakandidat}}">
+                    <input type="text " name="namakandidat" value="{{data.namakandidat}}">
+                    <input type="text " name="namakandidat" value="{{data.namakandidat}}">
+                    <input type="text " name="namakandidat" value="{{data.namakandidat}}">
+                    <input type="text " name="namakandidat" value="{{data.namakandidat}}">
+                </table>
+                    <a href="/panitia/detailprofil/{{d.id}}"></a><button type="submit">Simpan</button>
+            </form>
+        </div>
+    </div> -->
+    
+                
+                
+        </div>
+        </div>      
+    </div>
+</section>
+{% endblock %}
+

@@ -8,7 +8,8 @@
         <div class="conten">
             <div class="row">
                 <div style="margin-top: 5px; margin-right:20px;">
-                    <form id="form">
+                    <form id="form" method="post">
+                        {% csrf_token %}
                         <input style= "width: 40%;  height:25px; margin-left: 20px; margin-top:15px; border-radius:5px" type="text" id="judul" name="judul" placeholder=" Masukkan Judul Pemilihan">
                         <button type="submit" style="border: none;width: 10%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;"> Tambah </button>
                     </form>
@@ -58,6 +59,7 @@
 
         <!-- <img src="media/images/avatar.png" alt=""> -->
     </div>
+    
 </section>
 
 {% endblock %}

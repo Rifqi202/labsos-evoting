@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/stylenav.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>E-Voting</title>
+    <style>
+        
+        .sidetop {height: 10%;}
+        .ultop {list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    overflow: hidden;
+                    background-color: #0275FC;
+                    border-top-left-radius: 15px;
+                    border-top-right-radius: 15px;}
+        .iconprofil {float: left; width: 50px; height:45px; border-top-left-radius: 30%;}
+        .appname {display: block;
+                color: white;
+                text-align: center;
+                padding: 6px 16px;
+                text-decoration: none;
+                font-size: 30px;}
+        .logout {display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;}
+        .user {display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+        
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="sidetop">
+        <ul class="ultop">
+            
+            <img class="iconprofil" src="https://saltwire.imgix.net/video-saturday-is-decision-day-for-municipal-elections-in-cape-breton-7.jpg?cs=srgb&fit=crop&h=568&w=847&dpr=1&auto=format%2Ccompress%2Cenhance" alt="" >
+            <li style="float: left;"><a href="/" class="appname"> E-Voting</a></li>
+            
+            <li style="float: right;"><a href="/logout" class="logout">
+                <i class='bx bx-log-in'></i>Logout</a></li>
+
+            <li style="float: right;">
+                
+            <a href="#news" class="user">
+                <i class='bx bxs-user-circle'></i>{{user.username}}</a></li>
+        </ul>
+    </div>
+        <div style="padding-left: 10px;">
+            
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

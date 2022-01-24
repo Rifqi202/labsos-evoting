@@ -1,0 +1,75 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+
+<section>
+    <div style="margin-left: 20%;">
+        <div>
+            <h2>Edit Data Kandidat</h2>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <table >
+                
+                <tr>
+                    <td>Nama</td>
+                    <td>:</td>
+                    <td><input type="text" name="namakandidat" value="{{data.namakandidat}}" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+                </tr>
+                <tr>
+                    <td>  tempatlahir </td>
+                    <td>:</td>
+                    <td><input type="text"  name="tempatlahir" value="{{data.tempatlahir}}" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+                </tr>
+                <tr>
+                    <td> tanggallahir  </td>
+                    <td>:</td>
+                    <td> <input type="number"  name="tanggallahir" value="{{data.tanggallahir}}" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+                </tr>
+                <tr>
+                    <td> Alamat </td>
+                    <td>:</td>
+                    <td> <input type="text"  name="alamat" value="{{data.alamat}}" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"> </td>
+                </tr>
+                <tr>
+                    <td> Pengalaman </td>
+                    <td>:</td>
+                    <td><input type="text"  name="pengalaman" value="{{data.pengalaman}}" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+                </tr>
+                <tr>
+                    <td> Prestasi </td>
+                    <td>:</td>
+                    <td><input type="text"  name="prestasi" value="{{data.prestasi}}" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+                </tr>
+                <tr>
+                    <td> visi </td>
+                    <td>:</td>
+                    <td><input type="text"  name="visi" value="{{data.visi}}" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+                </tr>
+                <tr>
+                    <td> Misi </td>
+                    <td>:</td>
+                    <td><input type="text"  name="misi" value="{{data.misi}}" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+                </tr>
+                <tr>
+                    <td> Program kerja </td>
+                    <td>:</td>
+                    <td><input type="text" name="programkerja" value="{{data.programkerja}}" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+                </tr>
+                
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td >
+                    <a href="panitia/daftarkandidat"></a><button style=" margin-top:30px; margin-left:115px; border: none;width: 15%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;" type="submit"> Simpan </button>
+                    <a href="#"><button style=" margin-top:30px; margin-left:20px;border: none;width: 15%; height:30px;border-radius:5px; background-color:#fd810d; font-size:15px; color:white;"> Kembali </button>
+                    </a>
+                    </td>
+                </tr>
+            </table>
+            
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

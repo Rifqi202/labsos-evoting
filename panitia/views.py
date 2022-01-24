@@ -69,19 +69,20 @@ def detailprofil(request, id):
 
 def editkandidat(request, id):
     if request.POST:
-        namakandidat = request.POST["namakandidat"]
-        nomerurut = request.POST["nomerurut"]
-        tempatlahir = request.POST["tempatlahir"]
-        tanggallahir = request.POST["tanggallahir"]
-        alamat = request.POST["alamat"]
-        pengalaman = request.POST["pengalaman"]
-        prestasi = request.POST["prestasi"]
-        visi = request.POST["visi"]
-        misi = request.POST["misi"]
-        programkerja = request.POST["programkerja"]
-        input_kandidat_Main_Img = request.POST["kandidat_Main_Img"]
+        # input_kandidat_Main_Img = request.POST["kandidat_Main_Img"]
         print(input)
-        models.daftarkandidat.objects.filter(id = id).update()
+        models.daftarkandidat.objects.filter(pk = id).update(
+        namakandidat = request.POST["namakandidat"],
+        nomerurut = request.POST["nomerurut"],
+        tempatlahir = request.POST["tempatlahir"],
+        tanggallahir = request.POST["tanggallahir"],
+        alamat = request.POST["alamat"],
+        pengalaman = request.POST["pengalaman"],
+        prestasi = request.POST["prestasi"],
+        visi = request.POST["visi"],
+        misi = request.POST["misi"],
+        programkerja = request.POST["programkerja"],
+        )
         return redirect('daftarkandidat')
 
     editkandidat = models.daftarkandidat.objects.filter(id = id).first()

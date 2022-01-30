@@ -2,8 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-
-
 class daftarkandidat(models.Model):
     namakandidat = models.TextField(max_length=100, default='')
     nomerurut = models.IntegerField(default='')

@@ -31,7 +31,7 @@
             height: 10%;
         }
         .ultop{
-            list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #0275FC; border-top-left-radius: 15px; border-top-right-radius: 15px;
+            list-style-type: none; margin: 0; padding: 0; overflow: hidden; background-color: #06A003; border-top-left-radius: 15px; border-top-right-radius: 15px;
         }
         .ultop img{
             float: left; width: 50px; height:48px; border-top-left-radius: 30%;
@@ -45,30 +45,8 @@
         .namapanitia{
             display: block; color: white; text-align: center; padding: 14px; text-decoration: none;
         }
-        .sideleft{
-            height: 90%; float: left;border: black; color:rgb(78, 4, 4);
-        }
-        .ulleft{
-            float: left; list-style-type: none; margin-top: 1px; padding: 0; height: 595px; width: 200px; overflow: hidden; border-bottom-left-radius: 15px; border-color: black; color:black; background-color: #e1e1e4;
-        }
-        .lipanitia{
-            height: 8%;width: 200px; background-color: #0275FC; color: rgb(252, 248, 248); text-align: center; font-size: 20px;  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-        .lidash{
-            margin-top:20px; height: 6%; color: black; text-align: center; font-size: 17px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-        .likandidat{
-            margin-top:20px; height: 8%; color: rgb(10, 10, 10); text-align: center; font-size: 17px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-        .lipemilih{
-            margin-top:20px; height: 8%; color: rgb(7, 7, 7); text-align: center; font-size: 17px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-        .livoting{
-            margin-top:20px;height: 8%; color: rgb(7, 7, 7); text-align: center; font-size: 17px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-        .litambah{
-            margin-top:20px;height: 8%; color: rgb(7, 7, 7); text-align: center; font-size: 17px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
+        
+        
 
     </style>
 </head>
@@ -83,35 +61,8 @@
                     <li style="float: right;"><a href="#news" class="namapanitia"><i class='bx bxs-user-circle' ></i>{{user.username}}</a></li>
             </ul>
         </div>
-        
-        <div class="sideleft">
-            <ul class="ulleft">
-        
-                        <!-- sidebar -->
-                    
-                    <li class="lipanitia">
-                        <i class='bx bxs-user-circle' style="margin-top: 12px;">{{user.username}}</i>
-                    </li>
-                    <li class="lidash">
-                        <a href="/panitia"><i class='bx bx-home' style="color:black;" > Dashbord </i></a>
-                    </li>
-                    <li class="likandidat">
-                        <a href="/panitia/daftarkandidat"><i class=' btn bx bx-bar-chart-square' style="color:black;" > Data kandidat</i></a>
-                    </li>
-                    <li class="lipemilih">
-                        <a href="/panitia/datapemilih"><i class='bx bx-spreadsheet' style="color:black;" > Data Pemilih  </i></a>
-                    </li>
-                    <li class="livoting">
-                        <a href="/panitia/datavoting"><i class='bx bx-data' style="color:black;" > Data Voting    </i></a>
-                    </li>
-                    <li class="litambah">
-                        <a href="/panitia/tambahpanitia"><i class='bx bx-plus-circle' style="color:black;"> Tambah Panitia </i></a>
-                    </li>
-                </ul>
-            </div>
             <div>
-            
-                
+  
                 {% block content %}
                 {% endblock %}
             </div>

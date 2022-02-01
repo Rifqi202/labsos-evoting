@@ -5,54 +5,25 @@
 <section>
   <style>
     .tabel{
-      height: 35px;
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding-left: 8px;
-        font-size: 17px;
+      height: 35px; border: 1px solid black; border-collapse: collapse; padding-left: 8px; font-size: 17px;
     }
 
         /* Jendela Pop Up Tambah*/
     #popup {
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      background: rgba(0,0,0,.7);
-      top: 0;
-      left: 0;
-      z-index: 9999;
-      visibility: hidden;
+      width: 100%; height: 100%; position: fixed; background: rgba(0,0,0,.7); top: 0; left: 0; z-index: 9999; visibility: hidden;
     }
 
     .window {
-      width: 700px;
-      height: 370px;
-      background: #fff;
-      border-radius: 10px;
-      position: relative;
-      padding: 5px;
-      text-align: center;
-      margin-top: 5%;
-      margin-left: 20%;
+      width: 700px; height: 370px; background: #fff; border-radius: 10px; position: relative; padding: 5px; text-align: center;
+      margin-top: 5%; margin-left: 20%;
     }
     .window h2 {
       margin: 30px 0 0 0;
     }
     /* Button Close */
     .close-button {
-      width: 3%;
-      height: 6%;
-      line-height: 23px;
-      background: #000;
-      border-radius: 50%;
-      border: 3px solid #fff;
-      display: block;
-      text-align: center;
-      color: #fff;
-      text-decoration: none;
-      position: absolute;
-      top: -10px;
-      right: -10px;	
+      width: 3%; height: 6%; line-height: 23px; background: #000; border-radius: 50%; border: 3px solid #fff; display: block;
+      text-align: center; color: #fff; text-decoration: none; position: absolute; top: -10px; right: -10px;	
     }
 
     /* Memunculkan Jendela Pop Up*/
@@ -62,45 +33,20 @@
 
     /* Jendela Pop Up Edit*/
     #popupedit {
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      background: rgba(0,0,0,.7);
-      top: 0;
-      left: 0;
-      z-index: 9999;
-      visibility: hidden;
+      width: 100%; height: 100%; position: fixed; background: rgba(0,0,0,.7); top: 0; left: 0; z-index: 9999; visibility: hidden;
     }
 
     .windowedit {
-      width: 700px;
-      height: 370px;
-      background: #fff;
-      border-radius: 10px;
-      position: relative;
-      padding: 5px;
-      text-align: center;
-      margin-top: 5%;
-      margin-left: 20%;
+      width: 700px; height: 370px; background: #fff; border-radius: 10px; position: relative; padding: 5px; text-align: center;
+      margin-top: 5%; margin-left: 20%;
     }
     .windowedit h2 {
       margin: 30px 0 0 0;
     }
     /* Button Close */
     .close-button {
-      width: 3%;
-      height: 6%;
-      line-height: 23px;
-      background: #000;
-      border-radius: 50%;
-      border: 3px solid #fff;
-      display: block;
-      text-align: center;
-      color: #fff;
-      text-decoration: none;
-      position: absolute;
-      top: -10px;
-      right: -10px;	
+      width: 3%; height: 6%; line-height: 23px; background: #000; border-radius: 50%; border: 3px solid #fff; display: block;
+      text-align: center; color: #fff; text-decoration: none; position: absolute; top: -10px; right: -10px;	
     }
 
     /* Memunculkan Jendela Pop Up*/
@@ -111,45 +57,20 @@
 
         /* Jendela Pop Up Hapus data*/
     #popuphapus {
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      background: rgba(0,0,0,.7);
-      top: 0;
-      left: 0;
-      z-index: 9999;
-      visibility: hidden;
+      width: 100%; height: 100%; position: fixed; background: rgba(0,0,0,.7); top: 0; left: 0; z-index: 9999; visibility: hidden;
     }
 
     .windowhapus {
-      width: 500px;
-      height: 100px;
-      background: #fff;
-      border-radius: 10px;
-      position: relative;
-      padding: 5px;
-      text-align: center;
-      margin-top: 15%;
-      margin-left: 35%;
+      width: 500px; height: 100px; background: #fff; border-radius: 10px; position: relative; padding: 5px; text-align: center;
+      margin-top: 15%; margin-left: 35%;
     }
     .windowhapus h2 {
       margin: 30px 0 0 0;
     }
     /* Button Close */
     .close-buttonhapus {
-      width: 4%;
-      height: 20%;
-      line-height: 23px;
-      background: #000;
-      border-radius: 50%;
-      border: 3px solid #fff;
-      display: block;
-      text-align: center;
-      color: #fff;
-      text-decoration: none;
-      position: absolute;
-      top: -10px;
-      right: -10px;	
+      width: 4%; height: 20%; line-height: 23px; background: #000; border-radius: 50%; border: 3px solid #fff; display: block;
+      text-align: center; color: #fff; text-decoration: none; position: absolute; top: -10px; right: -10px;	
     }
     /* Memunculkan Jendela Pop Up*/
     #popuphapus:target {
@@ -157,26 +78,36 @@
     }
     .btn-hapus {
       background-color: rgb(255, 0, 21);
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-      align-items: center;
-      font-weight: bold;
-      text-align: center;
-      font-size: 15px;
-      width: 80px;
-      height: 23px;
-      border-radius: 20px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; align-items: center; font-weight: bold;
+      text-align: center; font-size: 15px; width: 80px; height: 23px; border-radius: 20px;
     }
+    .btn-data{
+      margin-top: 200px; margin-left: 80%; border: none; width: 10%; height:30px;border-radius:5px;
+      background-color:#0275FC; font-size:15px; color:white;
+    }
+    .delete{
+      margin-bottom: 0; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; color: blue;
+      margin-top: 7px; margin-bottom: 7px;
+    }
+    .btn-tambah{
+      margin-top:30px; margin-left:115px; border: none;width: 15%; height:30px;border-radius:5px; background-color:#0275FC;
+      font-size:15px; color:white;
+    }
+    .btn-back{
+      border: none; width: 10%; height:30px;border-radius:5px; background-color:#fd810d; font-size:15px; color:white;
+    }
+    
 </style>
 <section>
   <div>
 
-    <div style="margin-top: 30px; margin-left:17%;">
+    <div style="margin-top: 30px; margin-left:78px;">
       <h2>Data Pemilih</h2>
-      <a href="#popup"><button style=" margin-top:20px; margin-left:850px; border: none;width: 10%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;"> Tambah </button>
-      </a>
+              <a href="/panitia"><button class="btn-back">Kembali</button></a>
               {% if messages %}
               {% for message in messages %}
-                  <div style="background-color: rgb(228, 31, 31); opacity: 80%; text-align: center; font-size: 20px; color: azure;" {% if message.tags %} class="alert alert-{{ message.tags }} absolute"{% endif %}>{{ message }}</div>
+                  <div style="background-color: rgb(228, 31, 31); opacity: 80%; text-align: center; font-size: 20px; color: azure;"
+                  {% if message.tags %} class="alert alert-{{ message.tags }} absolute"{% endif %}>{{ message }}</div>
               {% endfor %}
               {% endif %}
           <table class="tabel" style="width: 90%; border-collapse: collapse; margin-top:20px;">
@@ -196,12 +127,12 @@
               <tbody>
                 <tr class="tabel">
                   <td class="tabel" style="text-align: center;">{{forloop.counter}}</td>
-                  <td class="tabel">{{d.1}}</td>
-                  <td class="tabel" style="text-align: center;">{{d.2}}</td>
-                  <td class="tabel" style="text-align: center;">{{d.3}}</td>
-                  <td class="tabel" style="text-align: center;">{{d.4}}</td>
-                  <td class="tabel" style="text-align: center;">{{d.5}}</td>
-                  <!-- <td class="tabel" style="text-align: center;">{{d.password}}</td> -->
+                  <td class="tabel">{{d.username}}</td>
+                  <td class="tabel" style="text-align: center;">{{d.NIK}}</td>
+                  <td class="tabel" style="text-align: center;">{{d.alamat}}</td>
+                  <td class="tabel" style="text-align: center;">{{d.Nohandphone}}</td>
+                  <td class="tabel" style="text-align: center;">{{d.email}}</td>
+
                   <td style="align-items: center; text-align: center; font-size: 25px;">
                     <a href="/panitia/editpemilih/{{d.id}}/edit"><i class='bx bxs-message-square-edit' style="color:#00ad04;"  ></i></a>
                     <a href="#popuphapus"><i class='bx bxs-trash' style='color:#ff0303'  ></i></a>
@@ -209,7 +140,7 @@
                       <div class="windowhapus">
                           <a href="#" class="close-buttonhapus" title="Close" style="font-size: 15px;">X</a>
                           <h1 style="font-size: 80%; margin-bottom: 0; margin-top: 0;">Apa Anda Ingin Menghapusnya?</h1>
-                          <div style="margin-bottom: 0; font-weight: bold; font-family: Georgia, 'Times New Roman', Times, serif; color: blue; margin-top: 7px; margin-bottom: 7px;">{{d.namapemilih}}</div>
+                          <div class="delete">{{d.namapemilih}}</div>
                           <a href="{{d.id}}/delete">
                           
                           <button class="btn-hapus">Ya</button></a>
@@ -222,6 +153,7 @@
                 {% endfor %}
               </tbody>   
             </table>
+            <a href="#popup"><button class="btn-data"> Tambah </button></a>
     </div>
 
     <!--========= FORM TAMBAH PEMILIH =========================  -->
@@ -241,7 +173,7 @@
                   <tr>
                       <td>Nama</td>
                       <td>:</td>
-                      <td><input type="text" id="namakandidat" name="namakandidat"  style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+                      <td><input type="text" id="namakandidat" name="namakandidat" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
                   </tr>
               <tr>
                   <td> NIK/NIM </td>
@@ -267,9 +199,8 @@
           </table>
               <tr>
                   <td >
-                      <button style=" margin-top:30px; margin-left:115px; border: none;width: 15%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;" type="submit"> Tambah </button>
-                      <a href="/"><button style=" margin-top:30px; margin-left:20px;border: none;width: 15%; height:30px;border-radius:5px; background-color:#fd810d; font-size:15px; color:white;"> Kembali </button>
-                      </a>
+                      <button class="btn-tambah" type="submit"> Tambah </button>
+                      <a href="#"><button class="btn-back"> Kembali </button></a>
                   </td>
               </tr>
           </form>
@@ -316,8 +247,8 @@
         </table>
             <tr>
                 <td >
-                    <button style=" margin-top:30px; margin-left:115px; border: none;width: 15%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;" type="submit"> Tambah </button>
-                    <a href="/"><button style=" margin-top:30px; margin-left:20px;border: none;width: 15%; height:30px;border-radius:5px; background-color:#fd810d; font-size:15px; color:white;"> Kembali </button>
+                    <button class="btn-tambah" type="submit"> Tambah </button>
+                    <a href="#"><button class="btn-back"> Kembali </button>
                     </a>
                 </td>
             </tr>

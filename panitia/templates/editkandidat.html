@@ -6,7 +6,7 @@
     <div style="margin-left: 20%;">
         <div>
             <h2>Edit Data Kandidat</h2>
-            <form method="POST" action="">
+            <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <table >
                 
@@ -60,7 +60,11 @@
                     <td>:</td>
                     <td><input type="text" name="programkerja" value="{{data.programkerja}}" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
                 </tr>
-                
+                <!-- <tr>
+                    <td> foto </td>
+                    <td>:</td>
+                    <td><input type="file" name="kandidat_Main_Img" value="{{data.kandidat_Main_Img}}" style=" margin-top:10px; height: 20px; width: 500px; text-align: left;"></td>
+                </tr> -->
                 <tr>
                     <td >
                     <a href="panitia/daftarkandidat"><button style=" margin-top:30px; margin-left:115px; border: none;width: 15%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;" type="submit"> Simpan </button></a>

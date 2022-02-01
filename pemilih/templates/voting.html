@@ -29,13 +29,13 @@
             font-size: 20px; font-weight: bold; margin-top: 10px; margin-bottom: 10px;
         }
         #popup1 { 
-            width: 100%; height: 100%; position: fixed; background: rgba(0,0,0,.5); top: 0; left: 0; z-index: 9999; visibility: hidden;
+            width: 100%; height: 100%; position: fixed; background: rgba(0,0,0,.5); top: 0; left: 0px; z-index: 9999; visibility: hidden;
         }
         #popup2 {
             width: 100%; height:100%; position: fixed; background: rgba(0,0,0,.5); top: 0; left: 0; z-index: 9999; visibility: hidden;
         }
         .window {
-            width: 500px; height: 125px; background: #fff; border-radius: 10px; position: relative; padding: 5px; text-align: center; margin-top: 10%; margin-left: 27%;
+            width: 500px; height: 125px; background: #fff; border-radius: 10px; position: relative; padding: 5px; text-align: center; margin-top: 10%; margin-left: 32%;
         }
         .close-button {
             width: 20px; height: 21px; line-height: 23px; background: rgba(0,0,0,.9); border-radius: 50%; border: 3px solid #fff; display: block; text-align: center; color: #fff; text-decoration: none; position: absolute; top: 10px; right: 10px;	
@@ -50,11 +50,20 @@
         input {
             width: 250px; height: 25px; border: 1px solid black; border-radius: 5px;
         }
+        .btn-vote{
+            font-weight: bold; color: white; background-color: #06A003; margin-top: 6px; width: 100px; height: 30px; border-radius: 5px;
+        }
+        .btn-yes{
+            font-weight: bold; color: white; background-color: #06A003; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px
+        }
+        .btn-no{
+            font-weight: bold; color: white; background-color: red; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;
+        }
             
     </style>
 
     <div>
-        <div style="margin-left: 10%; margin-right: 10%; display: block; width: 75%; height: 92%; position: absolute;">
+        <div style="margin-left: 12%; margin-right: 10%; display: block; width: 75%; height: 92%; position: absolute;">
             <!-- BOX JUDUL -->
             <div class="boxjudul">
                 <header class="header">
@@ -76,22 +85,32 @@
                 <div class="boxfoto">
                     <h4 class= "">{{k.nomerurut}}</h4>
                     <img class="foto" src="https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png" alt="">
+<<<<<<< HEAD
                     <p>{{k.namakandidat}}</p>
                     <a href="#popup1"><button style="font-weight: bold; color: white; background-color: #0275FC; margin-top: 6px; width: 100px; height: 30px; border-radius: 5px;">
                         Pilih</button></a>
+=======
+                    <p>Brodiq</p>
+                    <a href="#popup1"><button class="btn-vote">Pilih</button></a>
+>>>>>>> 9f2c246b399a6bf1bcc300246d0992c4814b42cb
     
                     <div id="popup1">
                         <div class="window">
                             <a href="#" class="close-button" title="Close">X</a>
                             <h3 style="margin-top: 25px;;">Apakah Pilihan Anda Sudah Benar?</h3>
+<<<<<<< HEAD
                                 <a href="/pemilih/vote/{{k.id}}"><button style="font-weight: bold; color: white; background-color: #0275FC; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
                                     Iya</button></a>
                         
                                 <a href="#"><button style="font-weight: bold; color: white; background-color: red; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
                                     Tidak</button></a>
+=======
+                                <a href="/"><button class="btn-yes" type="submit">Iya</button></a>
+                                <a href="#"><button class="btn-no">Tidak</button></a>
+>>>>>>> 9f2c246b399a6bf1bcc300246d0992c4814b42cb
                         </div>
                     </div>
-                    <div id="popup2">
+                    <!-- <div id="popup2">
                         <div class="window">
                             <form method="post">
                                 {% csrf_token %}
@@ -103,18 +122,24 @@
                                 <input type="submit" value="Submit" style="width: 225px;  height: 30px; font-size: 15px; font-weight: bold; margin-top: 15px; border-radius: 5px; background-color: #0275FC; color: white; ">
                             </form>
                         </div>
+<<<<<<< HEAD
                         
                     </div>
                     
+=======
+    
+                    </div> -->
+    
+>>>>>>> 9f2c246b399a6bf1bcc300246d0992c4814b42cb
                 </div>
                 {% endfor %}
                 <!-- <div class="boxfoto">
                     <h4 class= "">NO.2</h4>
                     <img class="foto" src="https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png" alt="">
                     <p>Brozam</p>
-                    <a href="#popup1"><button style="font-weight: bold; color: white; background-color: #0275FC; margin-top: 6px; width: 100px; height: 30px; border-radius: 5px;">
-                        Pilih</button></a>
+                    <a href="#popup1"><button class="btn-vote">Pilih</button></a>
     
+<<<<<<< HEAD
                         <div id="popup1">
                             <div class="window">
                             <a href="#" class="close-button" title="Close">X</a>
@@ -124,24 +149,37 @@
                         
                                 <a href="#"><button style="font-weight: bold; color: white; background-color: red; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
                                     Tidak</button></a>
+=======
+                    <div id="popup2">
+                        <div class="window">
+                            <a href="#" class="close-button" title="Close">X</a>
+                            <h3 style="margin-top: 25px;;">Apakah Pilihan Anda Sudah Benar?</h3>
+                                <a href="/"><button class="btn-yes" type="submit">Iya</button></a>
+                                <a href="#"><button class="btn-no">Tidak</button></a>
+>>>>>>> 9f2c246b399a6bf1bcc300246d0992c4814b42cb
                         </div>
     
                     </div>
-                    <div id="popup2">
+                     <!-- <div id="popup2">
                         <div class="window">
                             <a href="#" class="close-button" title="Close">X</a>
                             <h3 style="margin-top: 10px;">Masukkan Pin Anda</h3>
                                 <form action="/pemilih/hasilvoting">
                                     <center>
                                         <input type="password" id= "psw" name="password"><br>
+<<<<<<< HEAD
                                          <input type="submit" value="submit"> -->
                                         <!-- <input type="submit" formaction="/pemilih/hasilvoting" value="Submit"
+=======
+                                        <input type="submit" value="submit">
+                                        <input type="submit" formaction="/pemilih/hasilvoting" value="Submit"
+>>>>>>> 9f2c246b399a6bf1bcc300246d0992c4814b42cb
                                         style="margin-top: 10px; width: 75px; height: 25px;border-radius: 5px; color: white; background-color: #0275FC;">
                                     </center>
                                 </form>
                         </div>
     
-                    </div>
+                    </div> -->
     
                 </div> -->
         </div>

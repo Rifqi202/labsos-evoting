@@ -2,38 +2,60 @@
 
 {% block content %}
 
+<style>
+    .judul{
+        text-align: center; font-size:23px; font-weight:bold; margin-top: 30px;
+    }
+    .pemilih{
+         margin-top:20px;border-radius:1px; background-color:#0275FC;  height: 72px; width: 200px; text-align: center; color:white; font-size: 20px;
+    }
+    .kandidat{
+        margin-top:20px; margin-left:100px; border-radius:1px; background-color:#06A003; width: 200px; height: 72px; text-align: center; color:white; font-size: 20px; 
+    }
+    .voting{
+        margin-top:20px; margin-left:100px; border-radius:1px; background-color:#c25e16; height: 72px; width: 200px;text-align: center;color:white; font-size: 20px;
+    }
+    .pengumuman{
+         margin-top:20px; margin-left:100px; background-color:#fd2b06; height: 50px; width: 200px; height: 72px; color: white;  text-align: center; font-size: 20px;
+    }
+    .grafik{
+        font-size:20px; font-weight:bold;height:25x; margin-top: 50px; text-align: center; color:black;
+    }
+    .barchart{
+        width: 1000px; height:  400px; margin-top: 20px; margin-left: auto; margin-right: auto; border:1px solid black;
+    }
+</style>
 <section>
     <div>
         
         <div class="conten">
             <div class="row">
-                <div style="margin-top: 5px; margin-right:20px;">
-                    <form id="form" method="post">
-                        {% csrf_token %}
-                        <input style= "width: 40%;  height:25px; margin-left: 20px; margin-top:15px; border-radius:5px" type="text" id="judul" name="judul" placeholder=" Masukkan Judul Pemilihan">
-                        <button type="submit" style="border: none;width: 10%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;"> Tambah </button>
-                    </form>
-                </div>
+                        <div class="judul">Pemilihan Ketua HMP Informatika</div>
             </div>
-            <div class="flex-container">
-                <div style="padding: 10px; margin-top:20px; margin-left:20px;border-radius:1px; background-color:#0275FC; overflow: auto; height: 50px; width: 200px; text-align: left;color:white">
-                    {{jml_pemilih}} <br>Jumlah Pemilih</div>
-                <div style="padding: 10px; margin-top:20px; margin-left:20px;border-radius:1px; background-color:hsl(115, 93%, 43%); overflow: auto; height: 50px; width: 200px; text-align: left; color:white">
-                    {{jml_kandidat}} <br> Jumlah Kandidat</div>
-                <div style="padding: 10px; margin-top:20px; margin-left:20px;border-radius:1px; background-color:#c25e16; overflow: auto; height: 50px; width: 200px;text-align: left;color:white;">
-                    0 <br> Sudah Memilih</div>
-                <div style="padding: 10px; margin-top:20px; margin-left:20px;border-radius:1px; background-color:#fd2b06; overflow: auto; height: 50px; width: 200px; text-align: left;color:white">
-                    0 <br> Belum Memilih</div>
+            
+            <div class="flex-container" style="margin-left: 9%; margin-top: 25px;">
+                <a href="/panitia/datapemilih">
+                    <div class="pemilih"><br>Data Pemilih</div>
+                </a>
+                <a href="/panitia/listkandidat">
+                    <div class="kandidat"><br>Data Kandidat</div>
+                </a>
+                <a href="/panitia/datavoting">
+                      <div class="voting"><br>Data Voting</div>
+                </a>
+                <a href="/panitia/tambahpanitia">
+                    <div class="pengumuman"><br>Pengumuman</div>
+                </a>
             </div>  
-            <div style="font-size:20px; font-weight:bold;height:25x; margin-top: 20px; margin-left:18%; color:black; "> Grafik Hasil Perolehan Suara </div>   
-        </div>
+            <div class="grafik"> Grafik Hasil Perolehan Suara </div>   
+        
         <div>
-        <div style="width: 800px; height:  400px; margin-top: 20px; margin-left: 18%; border:1px solid black;">
+        <div class="barchart">
             <canvas id="myChart" style="margin-top: 1px; width:50%; max-width:720px;"></canvas>
             <script>
-            var xValues = ["No.1", "No.2","No.3","No.4"];
-            var yValues = [100, 48,28,67, 1];
-            var barColors = ["#c25e16", "#054e2c","#fd2b06","#0275FC"];
+            var xValues = ["No.1", "No.2"];
+            var yValues = [100, 48];
+            var barColors = ["#c25e16", "#054e2c"];
             new Chart("myChart", {
             type: "bar",
             data: {
@@ -56,6 +78,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
         <!-- <img src="media/images/avatar.png" alt=""> -->
     </div>

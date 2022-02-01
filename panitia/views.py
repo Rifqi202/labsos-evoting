@@ -2,18 +2,25 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from . import models
+from accounts import models as accountsmodels
+from .forms import *
+from .forms import KandidatForm, judulpemilihan
 
 # Create your views here.
 @login_required
 def dash(request):
-    if request.method == 'POST':
-        models.judul.objects.create(
-            judul = request.POST['judul']
-            )
+    form = judulpemilihan()
+    if request.POST:
+        form = judulpemilihan(request.POST)
+        if form.is_valid():
+            form.save()
+
         return redirect ('dash')
-    judul = models.judul.objects.all()
+
+    # judul = models.judul.objects.all()
     return render(request, 'dash.html',{
-        'judul': judul,
+        'form': form,
+       
     })
 
 def dashboard(request):
@@ -62,6 +69,15 @@ def tambahkandidat(request):
         "data": data,
     })
 
+def tambahkandidat(request):
+    form = KandidatForm()
+    if request.method == 'POST':
+        form = KandidatForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect('listkandidat')
+    context = {'form': form}
+    return render(request, 'daftarkandidat.html', context)
 
 @login_required
 def detailprofil(request, id):
@@ -73,7 +89,7 @@ def detailprofil(request, id):
 @login_required
 def editkandidat(request, id):
     if request.POST:
-        # input_kandidat_Main_Img = request.POST["kandidat_Main_Img"]
+        
         print(input)
         models.Daftarkandidat.objects.filter(pk = id).update(
         namakandidat = request.POST["namakandidat"],
@@ -86,6 +102,7 @@ def editkandidat(request, id):
         visi = request.POST["visi"],
         misi = request.POST["misi"],
         programkerja = request.POST["programkerja"],
+        # input_kandidat_Main_Img = request.POST["kandidat_Main_Img"],
         )
         return redirect('daftarkandidat')
 
@@ -106,6 +123,13 @@ def datapemilih(request):
 def datavoting(request):
     return render(request, 'datavoting.html')
 
-def tambahpanitia(request):
-    return render(request, 'tambahpanitia.html')
+def detailprofil(request):
+    return render(request, 'detailprofil.html')
 
+def datapemilih(request):
+    pemilih = accountsmodels.User.objects.all()
+    return render(request, 'datapemilih.html',{
+        'pemilih': pemilih
+    })
+def testing(request):
+    return render(request, 'tes.html')

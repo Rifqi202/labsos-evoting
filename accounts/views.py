@@ -34,9 +34,9 @@ def login_view(request):
             if user is not None and user.panitia:
                 login(request, user)
                 return redirect('/panitia')
-            elif user is not None and user.pemilih:
-                login(request, user)
-                return redirect('/pemilih')
+            # elif user is not None and user.pemilih:
+            #     login(request, user)
+            #     return redirect('/pemilih')
             else:
                 msg= 'invalid credentials'
         else:

@@ -18,5 +18,7 @@ class Daftarkandidat(models.Model):
     def __str__(self):
         return self.namakandidat
 
-class judul(models.Model):
-    judul = models.TextField(default='')
+class Vote(models.Model):
+    Tgl_Bln_Thn = models.DateField()
+    Nama_pemilihan = models.TextField(max_length=100, default='')
+

@@ -3,14 +3,12 @@ from django.contrib.auth.decorators import login_required
 
 from . import models, forms
 from accounts import models as accountsmodels
-# from .forms import *
-
 # Create your views here.
 @login_required
 def dash(request):
-    form = forms.judulpemilihan()
+    form = forms.VoteForm()
     if request.POST:
-        form = forms.judulpemilihan(request.POST)
+        form = forms.VoteForm(request.POST)
         if form.is_valid():
             form.save()
 
@@ -104,4 +102,15 @@ def datapemilih(request):
         'pemilih': pemilih
     })
 def testing(request):
-    return render(request, 'tes.html')
+    return render(request, 'tes/tes.html')
+    
+def tambahvote(request):
+    if request.method == 'POST':
+        form = forms.VoteForm(request.POST, request.FILES)
+
+    if form.is_valid():
+        form.save()
+        return redirect('testing')
+    else:
+        form = forms.VoteForm()
+        return render(request, 'tes.html', {'form' : form})

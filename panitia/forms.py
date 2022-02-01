@@ -1,6 +1,6 @@
+from django.forms import ModelForm
+from .models import Daftarkandidat, Vote
 from django import forms
-from django.forms import CharField, DateInput, ModelForm
-from .models import Daftarkandidat, judul
 
 class KandidatForm(ModelForm):
 	tanggallahir = forms.CharField(
@@ -11,9 +11,9 @@ class KandidatForm(ModelForm):
 		exclude = ['kandidat_Main_Img']
 
 
-class judulpemilihan(ModelForm):
+class VoteForm(ModelForm):
 	class Meta:
-		model = judul
-		fields = ['judul']
+		model = Vote
+		fields = '__all__'
 
     

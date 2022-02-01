@@ -76,19 +76,18 @@
                             <th scope="col" class="tabel">Action</th>
                         </tr>
                     </thead>
-                            {% for d in kandidat %}
+                            {% for d in data %}
                             
                             
                         <tbody>
                             <tr class="tabel">
                                 <td class="tabel" style="text-align: center;">
                                     {{forloop.counter}}</td>
-                                    <td class="tabel">
-                                        {{d.namakandidat}}</td>
-                                        <td class="tabel" style="text-align: center;">
-                                            {{d.nomerurut}}</td>
-                                            <td class="tabel" style="text-align: center;"><img src="{{d.kandidat_Main_Img}}" alt="avatar" style="width: 10px; height:10px;" >
-                                    {{d.kandidat_Main_Img}}</td>
+                                    <td class="tabel">{{d.namakandidat}}</td>
+                                    <td class="tabel" style="text-align: center;">{{d.nomerurut}}</td>
+                                    <td class="tabel" style="text-align: center;">
+                                        <img src="{{d.kandidat_Main_Img}}" alt="avatar" style="width: 10px; height:10px;" >{{d.kandidat_Main_Img}}
+                                    </td>
                                 <td style="align-items: center; text-align: center; font-size: 25px;">
                                     <a href="/panitia/detailprofil/{{d.id}}"><i class='bx bxs-message-square-edit' style="color:#00ad04;"  ></i></a>
                                 <a href="#popuphapus"><i class='bx bxs-trash' style='color:#ff0303'  ></i></a>
@@ -98,7 +97,7 @@
                                             <h1 style="font-size: 80%; margin-bottom: 0; margin-top: 0;">Apa Anda Ingin Menghapusnya?</h1>
                                             
                                             <br>
-                                            <a href="/panitia/detailprofil/{{d.id}}/delete"><button class="btn-hapus">Ya</button></a>
+                                            <a href="/panitia/{{d.id}}/delete"><button class="btn-hapus">Ya</button></a>
                                         </div>
                                         
                                 </div>
@@ -117,82 +116,21 @@
             </div>
         </div>
         
+        <!-- <a href="/panitia/tambahkandidat"><button class="btn-data"> Tambah Kandidat</button> </h2></a> -->
         <a href="#popup1"><button class="btn-data"> Tambah Kandidat</button> </h2></a>
         <div id="popup1">
             <div class="window" style="overflow: auto">
                 <div style="width: 50%;">
                     <a href="#" class="close-button" title="Close">X</a>
                     <h2>Tambahkan Data kandidat</h2>
-                <form method="POST" action="" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{form.as_p}}
-                    <!-- <table >
-                        
-                        <tr>
-                            <td>No</td>
-                            <td>:</td>
-                            <td><input type="number" id="nomerurut" name="nomerurut" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"></td>
-                        </tr>
-                        <tr>
-                            <td>Nama</td>
-                            <td>:</td>
-                            <td><input type="text" id="namakandidat" name="namakandidat"  style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"></td>
-                        </tr>
-                        <tr>
-                            <td> Tempat Lahir </td>
-                            <td>:</td>
-                            <td> <input type="text" id="tempatlahir" name="tempatlahir" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
-                        </tr>
-                        <tr>
-                            <td> Tanggal Lahir </td>
-                            <td>:</td>
-                            <td> <input type="date" id="tanggallahir" name="tanggallahir" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
-                        </tr>
-                        <tr>
-                            <td> Alamat  </td>
-                        <td>:</td>
-                        <td> <input type="text" id="alamat" name="alamat" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
-                    </tr>
-                    <tr>
-                        <td> Pegalaman </td>
-                        <td>:</td>
-                        <td><input type="text" id="pengalaman" name="pengalaman"  style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
-                    </tr>
-                    <tr>
-                        <td> Prestasi </td>
-                        <td>:</td>
-                        <td><input type="text" id="prestasi" name="prestasi"  style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td> Visi </td>
-                        <td>:</td>
-                        <td><input type="text" id="visi" name="visi"  style=" margin-top:10px; height: 50px; width: 750px; text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td> misi </td>
-                        <td>:</td>
-                        <td><input type=" text" id=" misi" name="misi"  style=" margin-top:10px; height: 50px; width: 750px; text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td> program kerja </td>
-                        <td>:</td>
-                        <td><input type=" text" id="programkerja" name="programkerja" style=" margin-top:10px; height: 40px; width: 750px; text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td>Foto kandidat</td>
-                        <td>:</td>
-                        <td><input type="file" id="kandidat_Main_Img" name="kandidat_Main_Img"></td>
-                    </tr>
-                </table>
-                    <tr>
-                        <td > -->
-                            <button class="btn-tambah" type="submit" name="submit"> Tambah </button>
-                            <a href="#"><button class="btn-back1"> Kembali </button>
-                            </a>
-                        </td>
-                    </tr>
-                </form>
-            </div>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <input type="submit" class="btn btn-primary">
+                        <!-- <button class="btn-tambah" type="submit" name="submit"> Tambah </button> -->
+                        <a href="/"><button class="btn-back1"> Kembali </button></a>
+                    </form>
+                </div>
             </div>
         </div>
 

@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from . import models
+from . import models, forms
 from accounts import models as accountsmodels
-from .forms import *
+# from .forms import *
 
 # Create your views here.
 @login_required
 def dash(request):
-    form = judulpemilihan()
+    form = forms.judulpemilihan()
     if request.POST:
-        form = judulpemilihan(request.POST)
+        form = forms.judulpemilihan(request.POST)
         if form.is_valid():
             form.save()
 
@@ -25,60 +25,40 @@ def dash(request):
 def dashboard(request):
     return render(request, 'dashboard.html')
 
-@login_required
-def listkandidat(request):
-    form = KandidatForm()
-    if request.POST:
-        form = KandidatForm(request.POST)
+# @login_requireds
+def listkandidat(req):
+    form = forms.KandidatForm()
+    if req.POST:
+        form = forms.KandidatForm(req.POST)
         if form.is_valid():
             form.save()
-        return redirect('listkandidat')
-    context = {'form': form}
+            # return redirect('listkandidat')
+        
     datakandidat = models.Daftarkandidat.objects.all()
-    return render(request, 'daftarkandidat.html',{
-        "data": datakandidat,
+    print(datakandidat)
+    return render(req, 'daftarkandidat.html',{
+        'data': datakandidat,
         'form': form,
     })
 
-# @login_required
-# def tambahkandidat(request):
-#     if request.POST:
-#         input_namakandidat = request.POST["namakandidat"]
-#         input_nomerurut = request.POST["nomerurut"]
-#         input_tempatlahir = request.POST["tempatlahir"]
-#         input_tanggallahir = request.POST["tanggallahir"]
-#         input_alamat = request.POST["alamat"]
-#         input_pengalaman = request.POST["pengalaman"]
-#         input_prestasi = request.POST["prestasi"]
-#         input_visi = request.POST["visi"]
-#         input_misi = request.POST["misi"]
-#         input_programkerja = request.POST["programkerja"]
-#         # input_kandidat_Main_Img = request.POST["kandidat_Main_Img"]
-#         models.Daftarkandidat.objects.create(namakandidat = input_namakandidat, nomerurut = input_nomerurut, tempatlahir = input_tempatlahir, tanggallahir = input_tanggallahir, alamat = input_alamat, pengalaman = input_pengalaman, prestasi = input_prestasi, visi = input_visi, misi = input_misi, programkerja = input_programkerja)
-    
-#     data = models.Daftarkandidat.objects.all()
-#     return render(request, "daftarkandidat.html",{
-#         "data": data,
-#     })
-
 def tambahkandidat(request):
-    form = KandidatForm()
+    form = forms.KandidatForm()
     if request.POST:
-        form = KandidatForm(request.POST)
+        form = forms.KandidatForm(request.POST)
         if form.is_valid():
             form.save()
         return redirect('listkandidat')
     context = {'form': form}
-    return render(request, 'daftarkandidat.html', context)
+    return render(request, 'tambahkandidat.html', context)
 
-@login_required
+# @login_required
 def detailprofil(request, id):
     detailprofil = models.Daftarkandidat.objects.filter(id = id).first()
     return render(request, 'detailprofil.html', {
         'data': detailprofil,
     })
 
-@login_required
+# @login_required
 def editkandidat(request, id):
     if request.POST:
         
@@ -103,10 +83,10 @@ def editkandidat(request, id):
         'data': editkandidat,
     })
 
-@login_required
+# @login_required
 def delete(request, id):
     models.Daftarkandidat.objects.filter(id = id).delete()
-    return redirect('/panitia/daftarkandidat')
+    return redirect('/panitia/listkandidat')
 
 
 def datapemilih(request):

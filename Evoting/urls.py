@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('accounts.urls')),
     path('panitia/', include('panitia.urls')),
     path('pemilih/', include('pemilih.urls')),
+    path('vote/', include('vote.urls')),
 ]
 
 # if settings.DEBUG:

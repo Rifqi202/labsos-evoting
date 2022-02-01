@@ -5,6 +5,6 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    panitia = models.BooleanField('panitia', default=False)
-    pemilih = models.BooleanField('pemilih', default=False)
+    panitia = models.BooleanField('panitia', default=True)
+    # pemilih = models.BooleanField('pemilih', default=False)
     # is_employee = models.BooleanField('Is employee', default=False)

@@ -1,10 +1,10 @@
-# from django.forms import Input
-from django.shortcuts import render, HttpResponse
-from django.shortcuts import redirect
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+
 from . import models
 
 # Create your views here.
-
+@login_required
 def dash(request):
     if request.method == 'POST':
         models.judul.objects.create(
@@ -19,9 +19,10 @@ def dash(request):
 def dashboard(request):
     return render(request, 'dashboard.html')
 
+@login_required
 def daftarkandidat(request):
     if request.POST:
-        models.daftarkandidat.objects.create(
+        models.Daftarkandidat.objects.create(
             namakandidat = request.POST["namakandidat"],
             nomerurut = request.POST["nomerurut"],
             tempatlahir = request.POST["tempatlahir"],
@@ -35,11 +36,12 @@ def daftarkandidat(request):
             # kandidat_Main_Img = request.POST["kandidat_Main_Img"]
             )
         return redirect('/panitia/daftarkandidat')
-    data = models.daftarkandidat.objects.all()
+    data = models.Daftarkandidat.objects.all()
     return render(request, 'daftarkandidat.html',{
         "data": data,
     })
 
+@login_required
 def tambahkandidat(request):
     if request.POST:
         input_namakandidat = request.POST["namakandidat"]
@@ -53,25 +55,27 @@ def tambahkandidat(request):
         input_misi = request.POST["misi"]
         input_programkerja = request.POST["programkerja"]
         # input_kandidat_Main_Img = request.POST["kandidat_Main_Img"]
-        models.daftarkandidat.objects.create(namakandidat = input_namakandidat, nomerurut = input_nomerurut, tempatlahir = input_tempatlahir, tanggallahir = input_tanggallahir, alamat = input_alamat, pengalaman = input_pengalaman, prestasi = input_prestasi, visi = input_visi, misi = input_misi, programkerja = input_programkerja, kandidat_Main_Img = input_kandidat_Main_Img)
+        models.Daftarkandidat.objects.create(namakandidat = input_namakandidat, nomerurut = input_nomerurut, tempatlahir = input_tempatlahir, tanggallahir = input_tanggallahir, alamat = input_alamat, pengalaman = input_pengalaman, prestasi = input_prestasi, visi = input_visi, misi = input_misi, programkerja = input_programkerja)
     
-    data = models.daftarkandidat.objects.all()
+    data = models.Daftarkandidat.objects.all()
     return render(request, "daftarkandidat.html",{
         "data": data,
     })
 
 
+@login_required
 def detailprofil(request, id):
-    detailprofil = models.daftarkandidat.objects.filter(id = id).first()
+    detailprofil = models.Daftarkandidat.objects.filter(id = id).first()
     return render(request, 'detailprofil.html', {
         'data': detailprofil,
     })
 
+@login_required
 def editkandidat(request, id):
     if request.POST:
         # input_kandidat_Main_Img = request.POST["kandidat_Main_Img"]
         print(input)
-        models.daftarkandidat.objects.filter(pk = id).update(
+        models.Daftarkandidat.objects.filter(pk = id).update(
         namakandidat = request.POST["namakandidat"],
         nomerurut = request.POST["nomerurut"],
         tempatlahir = request.POST["tempatlahir"],
@@ -85,13 +89,14 @@ def editkandidat(request, id):
         )
         return redirect('daftarkandidat')
 
-    editkandidat = models.daftarkandidat.objects.filter(id = id).first()
+    editkandidat = models.Daftarkandidat.objects.filter(id = id).first()
     return render( request, "editkandidat.html", {
         'data': editkandidat,
     })
 
+@login_required
 def delete(request, id):
-    models.daftarkandidat.objects.filter(id = id).delete()
+    models.Daftarkandidat.objects.filter(id = id).delete()
     return redirect('/panitia/daftarkandidat')
 
 

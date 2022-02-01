@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'panitia',
     'pemilih',
     'accounts',
+    'vote',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,6 @@ MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 AUTH_USER_MODEL = 'accounts.User'
+
+# LOGIN_REDIRECT_URL = 'panitia/'
+# LOGIN_URL = '/'

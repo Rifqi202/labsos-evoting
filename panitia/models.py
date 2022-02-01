@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class daftarkandidat(models.Model):
+class Daftarkandidat(models.Model):
     namakandidat = models.TextField(max_length=100, default='')
     nomerurut = models.IntegerField(default='')
     tempatlahir = models.TextField(max_length=100, default='')
@@ -15,6 +15,8 @@ class daftarkandidat(models.Model):
     programkerja = models.TextField(max_length=100, default='')
     kandidat_Main_Img = models.ImageField (upload_to='images/')
 
+    def __str__(self):
+        return self.namakandidat
 
 class judul(models.Model):
     judul = models.TextField(default='')

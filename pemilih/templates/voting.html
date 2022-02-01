@@ -59,23 +59,24 @@
             <div class="boxjudul">
                 <header class="header">
                     {% for judul in judul %}
-                        {{judul.judul}}
+                    {{judul.judul}}
                     {% endfor %}
                 </header>
                 <div class="judulkonten">
                     <a>Pilih Kandidat Anda</a>
                 </div>
             </div>
-    
+            
             <!-- BOX PILIH -->
             <div class="boxpilih">
     
                 <!-- FOTO -->
                 
+                {% for k in kandidat %}
                 <div class="boxfoto">
-                    <h4 class= "">NO.1</h4>
+                    <h4 class= "">{{k.nomerurut}}</h4>
                     <img class="foto" src="https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png" alt="">
-                    <p>Brodiq</p>
+                    <p>{{k.namakandidat}}</p>
                     <a href="#popup1"><button style="font-weight: bold; color: white; background-color: #0275FC; margin-top: 6px; width: 100px; height: 30px; border-radius: 5px;">
                         Pilih</button></a>
     
@@ -83,7 +84,7 @@
                         <div class="window">
                             <a href="#" class="close-button" title="Close">X</a>
                             <h3 style="margin-top: 25px;;">Apakah Pilihan Anda Sudah Benar?</h3>
-                                <a href="#popup2"><button style="font-weight: bold; color: white; background-color: #0275FC; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
+                                <a href="/pemilih/vote/{{k.id}}"><button style="font-weight: bold; color: white; background-color: #0275FC; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
                                     Iya</button></a>
                         
                                 <a href="#"><button style="font-weight: bold; color: white; background-color: red; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
@@ -99,25 +100,26 @@
                                         <label for="password" style="font-size: 18px;">Password</label><br>
                                         {{ form.password }}<br>
                                 </div>
-                                    <input type="submit" value="Submit" style="width: 225px;  height: 30px; font-size: 15px; font-weight: bold; margin-top: 15px; border-radius: 5px; background-color: #0275FC; color: white; ">
+                                <input type="submit" value="Submit" style="width: 225px;  height: 30px; font-size: 15px; font-weight: bold; margin-top: 15px; border-radius: 5px; background-color: #0275FC; color: white; ">
                             </form>
                         </div>
-    
+                        
                     </div>
-    
+                    
                 </div>
-                <div class="boxfoto">
+                {% endfor %}
+                <!-- <div class="boxfoto">
                     <h4 class= "">NO.2</h4>
                     <img class="foto" src="https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png" alt="">
                     <p>Brozam</p>
                     <a href="#popup1"><button style="font-weight: bold; color: white; background-color: #0275FC; margin-top: 6px; width: 100px; height: 30px; border-radius: 5px;">
                         Pilih</button></a>
     
-                    <div id="popup1">
-                        <div class="window">
+                        <div id="popup1">
+                            <div class="window">
                             <a href="#" class="close-button" title="Close">X</a>
                             <h3 style="margin-top: 25px;;">Apakah Pilihan Anda Sudah Benar?</h3>
-                                <a href="#popup2"><button style="font-weight: bold; color: white; background-color: #0275FC; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
+                            <a href="#popup2"><button style="font-weight: bold; color: white; background-color: #0275FC; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
                                     Iya</button></a>
                         
                                 <a href="#"><button style="font-weight: bold; color: white; background-color: red; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
@@ -132,8 +134,8 @@
                                 <form action="/pemilih/hasilvoting">
                                     <center>
                                         <input type="password" id= "psw" name="password"><br>
-                                        <!-- <input type="submit" value="submit"> -->
-                                        <input type="submit" formaction="/pemilih/hasilvoting" value="Submit"
+                                         <input type="submit" value="submit"> -->
+                                        <!-- <input type="submit" formaction="/pemilih/hasilvoting" value="Submit"
                                         style="margin-top: 10px; width: 75px; height: 25px;border-radius: 5px; color: white; background-color: #0275FC;">
                                     </center>
                                 </form>
@@ -141,7 +143,7 @@
     
                     </div>
     
-                </div>
+                </div> -->
         </div>
     </div>
 

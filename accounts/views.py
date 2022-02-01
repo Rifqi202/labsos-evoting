@@ -31,9 +31,9 @@ def login_view(request):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
-            if user is not None and user.pemilih:
+            if user is not None and user.panitia:
                 login(request, user)
-                return redirect('/pemilih')
+                return redirect('/panitia')
             # elif user is not None and user.pemilih:
             #     login(request, user)
             #     return redirect('/pemilih')

@@ -4,14 +4,14 @@ from django.contrib.auth.decorators import login_required
 from . import models
 from accounts import models as accountsmodels
 from .forms import *
-from .forms import KandidatForm, judulpemilihan
+# from .forms import KandidatForm, VoteForm
 
 # Create your views here.
 @login_required
 def dash(request):
-    form = judulpemilihan()
+    form = VoteForm()
     if request.POST:
-        form = judulpemilihan(request.POST)
+        form = VoteForm(request.POST)
         if form.is_valid():
             form.save()
 
@@ -117,4 +117,15 @@ def datapemilih(request):
         'pemilih': pemilih
     })
 def testing(request):
-    return render(request, 'tes.html')
+    return render(request, 'tes/tes.html')
+    
+def tambahvote(request):
+    if request.method == 'POST':
+        form = VoteForm(request.POST, request.FILES)
+
+    if form.is_valid():
+        form.save()
+        return redirect('testing')
+    else:
+        form = VoteForm()
+        return render(request, 'tes.html', {'form' : form})

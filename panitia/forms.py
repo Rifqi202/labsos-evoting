@@ -1,7 +1,5 @@
-# # forms.py
-# from pyexpat import model
 from django.forms import ModelForm
-from .models import Daftarkandidat, judul
+from .models import Daftarkandidat, Vote
 
 class KandidatForm(ModelForm):
 	class Meta:
@@ -9,9 +7,9 @@ class KandidatForm(ModelForm):
 		fields = '__all__'
 
 
-class judulpemilihan(ModelForm):
+class VoteForm(ModelForm):
 	class Meta:
-		model = judul
-		fields = ['judul']
+		model = Vote
+		fields = '__all__'
 
     

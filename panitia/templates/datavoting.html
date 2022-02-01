@@ -3,12 +3,32 @@
 {% block content %}
 
 <section>
+    <style>
+        .menu{
+            margin-left: 78px;
+        }
+        .judul{
+             margin-top: 30px;
+        }
+        .bar-chart{
+            width: 1000px; height: 250px; border: 1px solid black; margin-left: auto; margin-right: auto; margin-top: 20px
+        }
+        .grid-container{
+            display: grid;  grid-template-columns: auto auto auto auto;  margin-top: 20px; margin-left:auto; margin-right: auto;
+        }
+        .box-vote{
+            width: 200px; height: 100px; text-align: center; border: 1px solid black;  margin-left: 45px; margin-right: 100px;
+        }
+        .btn-back{
+            margin-left: 80%; margin-top: 15px; border: none; width: 10%; height:30px;border-radius:5px; background-color:#fd810d; font-size:15px; color:white;
+        }
+    </style>
     <div>
-            <div style="width: 1130px; height: 595px; position: absolute; right: 8px; border-bottom-right-radius: 15px;"> 
-                <h2 style="margin-left: 20px; margin-top: 20px; ">Data Voting</h2>
-                <div style="width: 1100px; height:  457px; margin-top: 35px; margin-left: 20px; border:1px solid black;">
+            <div class="menu"> 
+                <h2 class="judul">Data Voting</h2>
+                <div style="margin-left: 5%; width: 1100px; height: 457px; margin-top: 30px; border:1px solid black;">
                     <h3 class="content" style="text-align: center; margin-top: 20px;">Grafik Perolehan Suara</h3>
-                    <div style="width: 1000px; height: 250px; border: 1px solid black; margin-left: auto; margin-right: auto; margin-top: 20px;">
+                    <div class="bar-chart">
                         <canvas id="myChart" style="margin-top: 0; max-width:500px"></canvas>
                         <script>
                         var xValues = ["No.1", "No.2", "Belum Memilih"];
@@ -32,18 +52,18 @@
                         }
                         });
                         </script>
-                        <div class="grid-container" style="display: grid;  grid-template-columns: auto auto auto auto;  margin-top: 20px; margin-left:auto; margin-right: auto;">
-                            <div style="width: 200px; height: 100px; text-align: center; border: 1px solid black;  margin-left: 75px; margin-right: 100px; ">
+                        <div class="grid-container">
+                            <div class="box-vote">
                                 <img src="https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png" alt="" style=" width: 85px; height: 100px; float: left; border-right: 1px solid black;">
                                 <h3>No.1</h3>
                                 <p style="font-weight: bold;">(52 suara)</p>
                             </div>
-                            <div style="width: 200px; height: 100px; text-align: center; border: 1px solid black;  margin-left: auto; margin-right: auto;">
+                            <div class="box-vote">
                                 <img src="https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png" alt="" style=" width: 85px; height: 100px; float: left; border-right: 1px solid black;">
                                 <h3>No.2</h3>
                                 <p style="font-weight: bold;">(48 suara)</p>
                             </div>
-                            <div style="width: 200px; height: 100px; text-align: center; border: 1px solid black;  margin-left: 100px; margin-right: auto; ">
+                            <div class="box-vote">
                                 <img src="https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png" alt="" style=" width: 85px; height: 100px; float: left; border-right: 1px solid black;">
                                 <h3 style="font-size: 16px; margin-top: 20px;">Belum Memilih</h3>
                                 <p style="font-weight: bold; margin-top: 25px;">(87 suara)</p>
@@ -51,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                
+                <a href="/panitia"><button class="btn-back">Kembali</button></a>
             
             </div>
     </div>

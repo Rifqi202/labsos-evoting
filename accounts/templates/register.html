@@ -14,6 +14,24 @@
         border-radius: 5px;
         margin-top: 5px;
       }
+      #id_NIM {
+        height: 22px;
+        width: 225px;
+        border-radius: 5px;
+        margin-top: 5px;
+      }
+      #id_alamat {
+        height: 22px;
+        width: 225px;
+        border-radius: 5px;
+        margin-top: 5px;
+      }
+      #id_Nohandphone {
+        height: 22px;
+        width: 225px;
+        border-radius: 5px;
+        margin-top: 5px;
+      }
       #id_email {
         height: 22px;
         width: 225px;
@@ -39,22 +57,31 @@
         float: left; font-size: 23px; margin-top: 25px; margin-left: 10px; color: white;
       }
       .content{
-        background-color: #0275FC; height: 510px; align-content: center; padding-top: 10%; border-radius: 10px;
+        background-color: #06A003; height: 510px; align-content: center; padding-top: 10%; border-radius: 10px;
       }
       .menu{
-        background-color:white; height: 85%; width: 90%; border-radius: 15px; margin-left: auto; margin-right:auto; display: flex;
+        background-color:white; height: 90%; width: 90%; border-radius: 15px; margin-left: auto; margin-right:auto; display: flex;
       }
       .tengah{
-        width: 50%;
+        width: 45%; 
       }
       .tengah img{
         width: 285px; height: 260px; margin-left: auto; margin-right: auto; display: block; margin-top: 65px; border-radius: 10px;
       }
       .box-register{
-        text-align: center; width: 50%; background-color: white; border-radius: 15px;
+         margin-left: 30px; text-align: center; width: 50%; background-color: white; border-radius: 15px;
       }
       .box-register h1{
-        margin-top: 40px;
+        margin-top: 60px;
+      }
+      .kiritengah{
+        display: grid;  grid-template-columns: auto auto ; 
+      }
+      .kanantengah{
+        display: grid;  grid-template-columns: auto auto; 
+      }
+      .tengah1{
+        display: grid;  grid-template-columns: auto auto;
       }
     </style>
   </head>
@@ -73,30 +100,50 @@
                 <h1>Register Akun</h1>
               <form  method="post">
               {% csrf_token %}
-              <div>
-              <label for="username" style="font-size: 18px;">Username</label><br>
-                {{ form.username }}<br>
+              <div class="kiritengah">
+                <div>
+                  <label for="username" style="font-size: 18px;">Username</label><br>
+                    {{ form.username }}<br>
+                </div>
+                <div>
+                  <label for="NIK" style="font-size: 18px;">NIM</label><br>
+                    {{ form.NIM }}<br>
+                </div>
               </div>
-              <div>
-              <label for="email" style="font-size: 18px;">Email</label><br>
-                {{ form.email}}<br>
+              <div class="tengah1" style="margin-top: 10px;">
+                <div>
+                  <label for="email" style="font-size: 18px;">Email</label><br>
+                    {{ form.email }}<br>
+                </div>
+                <div>
+                  <label for="Nohandphone" style="font-size: 18px;">Nohandphone</label><br>
+                    {{ form.Nohandphone }}<br>
+                </div>
               </div>
-              <div>
-              <label for="password" style="font-size: 18px;">Password</label><br>
-                {{ form.password1 }}<br>
+              <div class="kanantengah" style="margin-top: 10px;">
+                <div>
+                  <label for="password" style="font-size: 18px;">Password</label><br>
+                    {{ form.password1}}<br>
+                </div>
+                <div>
+                  <label for="password" style="font-size: 18px;">Konfirmasi Password</label><br>
+                    {{ form.password2 }}<br>
+                </div>
               </div>
-              <div>
-              <label for="password" style="font-size: 18px;">Confirm Password</label><br>
-                {{ form.password2 }}<br>
-              </div>
+              <!-- <div style="display: grid; margin-top: 10px;">
+                <div>
+                  <label for="password" style="font-size: 18px;">Confirm Password</label><br>
+                    {{ form.password2 }}<br>
+                </div>
+              </div> -->
               <div class="flex-container" style="font-size: 18px; margin-top: 20px;">
               <label>
-                <span>Panitia</span>
+                <!-- <span>Panitia</span>
                   {{ form.panitia }}
               </label>
               <label style="margin-left: 80px;">
                 <span>Pemilih</span>
-                  {{ form.pemilih }}
+                  {{ form.pemilih }} -->
                 <div></div>
               </label>
               </div>

@@ -27,6 +27,27 @@ class SignUpForm(UserCreationForm):
             }
         )
     )
+    NIM =forms.IntegerField(
+        widget = forms.DateInput(
+            attrs={
+                "class": "form-control"
+            }
+        )
+    )
+    # alamat = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "class": "form-control"
+    #         }
+    #     )
+    # )
+    Nohandphone = forms.IntegerField(
+        widget= forms.DateInput(
+            attrs = {
+                "class": "form-control"
+            }
+        )
+    )
     password1 = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
@@ -51,4 +72,4 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2', 'panitia', 'pemilih')
+        fields = ('username', 'NIM','email', 'Nohandphone','password1', 'password2', 'panitia', 'pemilih')

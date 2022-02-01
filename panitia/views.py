@@ -27,25 +27,10 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 @login_required
-def daftarkandidat(request):
-    if request.POST:
-        models.Daftarkandidat.objects.create(
-            namakandidat = request.POST["namakandidat"],
-            nomerurut = request.POST["nomerurut"],
-            tempatlahir = request.POST["tempatlahir"],
-            tanggallahir = request.POST["tanggallahir"],
-            alamat = request.POST["alamat"],
-            pengalaman = request.POST["pengalaman"],
-            prestasi = request.POST["prestasi"],
-            visi = request.POST["visi"],
-            misi = request.POST["misi"],
-            programkerja = request.POST["programkerja"],
-            # kandidat_Main_Img = request.POST["kandidat_Main_Img"]
-            )
-        return redirect('/panitia/daftarkandidat')
-    data = models.Daftarkandidat.objects.all()
+def listkandidat(request):
+    datakandidat = models.Daftarkandidat.objects.all()
     return render(request, 'daftarkandidat.html',{
-        "data": data,
+        "data": datakandidat,
     })
 
 @login_required

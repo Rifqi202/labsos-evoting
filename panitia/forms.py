@@ -1,11 +1,11 @@
 # # forms.py
 # from pyexpat import model
 from django.forms import ModelForm
-from .models import daftarkandidat, judul
+from .models import Daftarkandidat, judul
 
 class KandidatForm(ModelForm):
 	class Meta:
-		model = daftarkandidat
+		model = Daftarkandidat
 		fields = '__all__'
 
 

@@ -1,12 +1,12 @@
-# # forms.py
-# from pyexpat import model
+from django import forms
 from django.forms import ModelForm
+from django import forms
 from .models import Daftarkandidat, judul
 
 class KandidatForm(ModelForm):
 	class Meta:
 		model = Daftarkandidat
-		fields = '__all__'
+		exclude = []
 
 
 class judulpemilihan(ModelForm):

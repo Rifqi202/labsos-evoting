@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from .models import Anggota, User
 
 class LoginForm(forms.Form):
     username = forms.CharField(
@@ -19,7 +19,7 @@ class LoginForm(forms.Form):
     )
 
 
-class SignUpForm(UserCreationForm):
+class SignUpAdminForm(UserCreationForm):
     username = forms.CharField(
         widget=forms.TextInput(
             attrs={
@@ -27,27 +27,6 @@ class SignUpForm(UserCreationForm):
             }
         )
     )
-    # NIM =forms.IntegerField(
-    #     widget = forms.DateInput(
-    #         attrs={
-    #             "class": "form-control"
-    #         }
-    #     )
-    # )
-    # alamat = forms.CharField(
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             "class": "form-control"
-    #         }
-    #     )
-    # )
-    # Nohandphone = forms.IntegerField(
-    #     widget= forms.DateInput(
-    #         attrs = {
-    #             "class": "form-control"
-    #         }
-    #     )
-    # )
     password1 = forms.CharField(
         widget=forms.PasswordInput(
             attrs={

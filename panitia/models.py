@@ -3,9 +3,9 @@ from django.db import models
 # Create your models here.
 
 class Daftarkandidat(models.Model):
-    namakandidat = models.TextField(max_length=100, default='')
+    namakandidat = models.CharField(max_length=100, default='')
     nomerurut = models.IntegerField(default='')
-    tempatlahir = models.TextField(max_length=100, default='')
+    tempatlahir = models.CharField(max_length=100, default='')
     tanggallahir = models.DateField()
     alamat = models.TextField(max_length=100, default='')
     pengalaman = models.TextField(max_length=100, default='')

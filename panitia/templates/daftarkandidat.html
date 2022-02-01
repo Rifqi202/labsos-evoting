@@ -64,8 +64,9 @@
         
             <div style=" margin-top: 20px; margin-left: 78px;">
                 <h2> Data Kandidat </h2>
+                <!-- {{form.as_p}} -->
                 <a href="/panitia"><button class="btn-back">Kembali</button></a>
-                    <table class="tabel" style="width: 90%; border-collapse: collapse; margin-top:20px;">
+                <table class="tabel" style="width: 90%; border-collapse: collapse; margin-top:20px;">
                         <thead>    
                         <tr class="tabel" style="text-align: center; margin-top:40px;">
                             <th scope="col" class="tabel">No</th>
@@ -74,7 +75,7 @@
                             <th scope="col" class="tabel">Foto</th>
                             <th scope="col" class="tabel">Action</th>
                         </tr>
-                        </thead>
+                    </thead>
                             {% for d in kandidat %}
                             
                             
@@ -82,14 +83,14 @@
                             <tr class="tabel">
                                 <td class="tabel" style="text-align: center;">
                                     {{forloop.counter}}</td>
-                                <td class="tabel">
-                                    {{d.namakandidat}}</td>
-                                <td class="tabel" style="text-align: center;">
-                                    {{d.nomerurut}}</td>
-                                <td class="tabel" style="text-align: center;"><img src="{{d.kandidat_Main_Img}}" alt="avatar" style="width: 10px; height:10px;" >
+                                    <td class="tabel">
+                                        {{d.namakandidat}}</td>
+                                        <td class="tabel" style="text-align: center;">
+                                            {{d.nomerurut}}</td>
+                                            <td class="tabel" style="text-align: center;"><img src="{{d.kandidat_Main_Img}}" alt="avatar" style="width: 10px; height:10px;" >
                                     {{d.kandidat_Main_Img}}</td>
                                 <td style="align-items: center; text-align: center; font-size: 25px;">
-                                <a href="/panitia/detailprofil/{{d.id}}"><i class='bx bxs-message-square-edit' style="color:#00ad04;"  ></i></a>
+                                    <a href="/panitia/detailprofil/{{d.id}}"><i class='bx bxs-message-square-edit' style="color:#00ad04;"  ></i></a>
                                 <a href="#popuphapus"><i class='bx bxs-trash' style='color:#ff0303'  ></i></a>
                                     <div id="popuphapus">
                                         <div class="windowhapus">
@@ -99,30 +100,32 @@
                                             <br>
                                             <a href="/panitia/detailprofil/{{d.id}}/delete"><button class="btn-hapus">Ya</button></a>
                                         </div>
-                        
+                                        
                                 </div>
                                 
-                                </td>
+                            </td>
                                 
-                            </tr>
-                            {% endfor %}
+                        </tr>
+                        {% endfor %}
                             
-                            
-                        </tbody>   
-                        </table>
+                        
+                    </tbody>   
+                </table>
             </div>
-            
-    
+                
+                
+            </div>
         </div>
-    </div>
-    
+        
+        <a href="#popup1"><button class="btn-data"> Tambah Kandidat</button> </h2></a>
         <div id="popup1">
-            <div class="window">
-                <a href="#" class="close-button" title="Close">X</a>
+            <div class="window" style="overflow: auto">
+                <div style="width: 50%;">
+                    <a href="#" class="close-button" title="Close">X</a>
                     <h2>Tambahkan Data kandidat</h2>
-                    <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form }}
+                    {{form.as_p}}
                     <!-- <table >
                         
                         <tr>
@@ -135,18 +138,18 @@
                             <td>:</td>
                             <td><input type="text" id="namakandidat" name="namakandidat"  style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"></td>
                         </tr>
-                    <tr>
-                        <td> Tempat Lahir </td>
-                        <td>:</td>
-                        <td> <input type="text" id="tempatlahir" name="tempatlahir" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
-                    </tr>
-                    <tr>
-                        <td> Tanggal Lahir </td>
-                        <td>:</td>
-                        <td> <input type="date" id="tanggallahir" name="tanggallahir" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
-                    </tr>
-                    <tr>
-                        <td> Alamat  </td>
+                        <tr>
+                            <td> Tempat Lahir </td>
+                            <td>:</td>
+                            <td> <input type="text" id="tempatlahir" name="tempatlahir" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
+                        </tr>
+                        <tr>
+                            <td> Tanggal Lahir </td>
+                            <td>:</td>
+                            <td> <input type="date" id="tanggallahir" name="tanggallahir" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
+                        </tr>
+                        <tr>
+                            <td> Alamat  </td>
                         <td>:</td>
                         <td> <input type="text" id="alamat" name="alamat" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
                     </tr>
@@ -190,8 +193,8 @@
                     </tr>
                 </form>
             </div>
+            </div>
         </div>
-        <a href="#popup1"><button class="btn-data"> Tambah Kandidat</button> </h2></a>
 
         
         

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LoginForm
+from .forms import SignUpAdminForm, LoginForm
 from django.contrib.auth import authenticate, login
 # Create your views here.
 
@@ -11,7 +11,7 @@ def index(request):
 def register(request):
     msg = None
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = SignUpAdminForm(request.POST)
         if form.is_valid():
             user = form.save()
             msg = 'user created'
@@ -19,7 +19,7 @@ def register(request):
         else:
             msg = 'form is not valid'
     else:
-        form = SignUpForm()
+        form = SignUpAdminForm()
     return render(request,'register.html', {'form': form, 'msg': msg})
 
 

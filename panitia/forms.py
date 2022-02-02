@@ -10,8 +10,9 @@ class KandidatForm(ModelForm):
 	)
 	class Meta:
 		model = Daftarkandidat
-		exclude = ['kandidat_Main_Img']
 
+		fields = '__all__'
+		exclude = ['kandidat_Main_Img']
 
 class VoteForm(ModelForm):
 	class Meta:

@@ -64,8 +64,7 @@
                     <h2>Tambah Pemilihan</h2>
                     <form method="POST" action="">
                         {% csrf_token %}
-                        <div class="apasih">
-                            <input type="date">{{form.as_p}}</div>
+                            {{form.as_p}}
                         <button class="btn-tambah" type="submit" name="submit"> Tambah </button>
                     </form>
                 </div>

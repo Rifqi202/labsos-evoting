@@ -108,11 +108,11 @@ def testing(request):
     return render(request, 'tes/tes.html')
     
 def tambahvote(request):
-    vote = VoteForm()
+    Vote = forms.VoteForm()
     if request.POST:
-        vote = VoteForm(request.POST)
-        if vote.is_valid():
-            vote.save()
-        # return redirect('testing')
-    context = {'form': vote}
+        Vote = forms.VoteForm(request.POST)
+        if Vote.is_valid():
+            Vote.save()
+        
+    context = {'form': Vote}
     return render(request, 'tes/tes.html', context)

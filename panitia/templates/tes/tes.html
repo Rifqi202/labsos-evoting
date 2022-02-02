@@ -50,22 +50,27 @@
         #popupvote:target {
             visibility: visible;
         }
+        .apasih{
+            font-size: 15px; border: 1px solid black; width: 500px;
+        }
+        
     </style>
     <div>
         <a href="#popupvote"><button class="btn-new">Buat Vote</button></a>
         <div id="popupvote">
             <div class="window">
-                <a href="#" class="close-button" title="Close">X</a>
+                <div style="width: 50%;">
+                    <a href="#" class="close-button" title="Close">X</a>
                     <h2>Tambah Pemilihan</h2>
-                    <form method="post"action="">
+                    <form method="POST" action="">
                         {% csrf_token %}
-                        Tgl/Bln/Thn : <input type="date" id="data" name="data">
-                        Judul Pemilihan : <input type="text" id="judulpemilihan" name="judulpemilihan">
-                        <button type="submit">Tambah</button>
+                        {{form.as_p}}
+                        <button class="btn-tambah" type="submit" name="submit"> Tambah </button>
                     </form>
-                
+                </div>
             </div>
         </div>
+        
         <table class="tabel" style="width: 80%; border-collapse: collapse; margin-top:30px; margin-left: 10%;">
             <thead>
                 
@@ -77,11 +82,11 @@
                 </tr>
             </thead>
             <tbody>
-                {% for d in vote %}
+                {% for d in data %}
                 <tr class="tabel">
-                    <td class="tabel" style="text-align: center;">1</td>
-                    <td class="tabel" style="text-align: center;">{{d.data}}</td>
-                    <td class="tabel" style="text-align: center;">{{d.judulpemilihan}}</td>
+                    <td class="tabel" style="text-align: center;">{{forloop.counter}}</td>
+                    <td class="tabel" style="text-align: center;">{{d.Waktu}}</td>
+                    <td class="tabel" style="text-align: center;">{{d.Judul}}</td>
                     <td class="tabel" style="text-align: center;">
                         <a href="#popuphapus"><i class='bx bxs-trash' style='color:#ff0303'  ></i></a>
                         <div id="popuphapus">
@@ -100,4 +105,5 @@
         </table>
     </div>
 </section>
+
 {% endblock %}

@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 
 from . import models, forms
 from accounts import models as accountsmodels
+# from .forms import KandidatForm, VoteForm
+
 # Create your views here.
 @login_required
 def dash(request):
@@ -102,15 +104,23 @@ def datapemilih(request):
         'pemilih': pemilih
     })
 def testing(request):
-    return render(request, 'tes/tes.html')
+    vote = forms.VoteForm()
+    if request.POST:
+        vote = forms.VoteForm(request.POST)
+        if vote.is_valid():
+            vote.save()
+        # return redirect('testing')
+    judul = models.Vote.objects.all()
+    context = {'form': vote, 'data': judul,}
+    return render(request, 'tes/tes.html', context)
+    # return render(request, 'tes/tes.html')
     
 def tambahvote(request):
-    if request.method == 'POST':
-        form = forms.VoteForm(request.POST, request.FILES)
-
-    if form.is_valid():
-        form.save()
-        return redirect('testing')
-    else:
-        form = forms.VoteForm()
-        return render(request, 'tes.html', {'form' : form})
+    vote = forms.VoteForm()
+    if request.POST:
+        vote = forms.VoteForm(request.POST)
+        if vote.is_valid():
+            vote.save()
+        # return redirect('testing')
+    context = {'form': vote}
+    return render(request, 'tes/tes.html', context)

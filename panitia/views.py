@@ -116,6 +116,7 @@ def testing(request):
     # return render(request, 'tes/tes.html')
     
 def tambahvote(request):
+<<<<<<< HEAD
     vote = forms.VoteForm()
     if request.POST:
         vote = forms.VoteForm(request.POST)
@@ -124,3 +125,13 @@ def tambahvote(request):
         # return redirect('testing')
     context = {'form': vote}
     return render(request, 'tes/tes.html', context)
+=======
+    Vote = forms.VoteForm()
+    if request.POST:
+        Vote = forms.VoteForm(request.POST)
+        if Vote.is_valid():
+            Vote.save()
+        
+    context = {'form': Vote}
+    return render(request, 'tes/tes.html', context)
+>>>>>>> 2c46e773206fb4ef196807d7070883dc20a7cb3e

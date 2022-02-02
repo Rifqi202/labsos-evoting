@@ -19,6 +19,6 @@ class Daftarkandidat(models.Model):
         return self.namakandidat
 
 class Vote(models.Model):
-    Tgl_Bln_Thn = models.DateField()
-    Nama_pemilihan = models.TextField(max_length=100, default='')
+    Waktu = models.DateField()
+    Judul = models.TextField()
 

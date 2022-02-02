@@ -53,7 +53,8 @@
     }
     .btn-tambah{
         margin-top:15px; margin-left:400px; border: none;width: 15%; height:30px;border-radius:5px; background-color:#0275FC; font-size:15px; color:white;
-    }.btn-data{
+    }
+    .btn-data{
         margin-left: 78%; margin-top: 350px; border: none; width: 13%; height:30px; border-radius: 10px; background-color:#06A003; color:white; font-weight: bold;
     }
 </style>
@@ -126,71 +127,9 @@
                 <form method="POST" action="" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{form.as_p}}
-                    <!-- <table >
-                        
-                        <tr>
-                            <td>No</td>
-                            <td>:</td>
-                            <td><input type="number" id="nomerurut" name="nomerurut" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"></td>
-                        </tr>
-                        <tr>
-                            <td>Nama</td>
-                            <td>:</td>
-                            <td><input type="text" id="namakandidat" name="namakandidat"  style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"></td>
-                        </tr>
-                        <tr>
-                            <td> Tempat Lahir </td>
-                            <td>:</td>
-                            <td> <input type="text" id="tempatlahir" name="tempatlahir" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
-                        </tr>
-                        <tr>
-                            <td> Tanggal Lahir </td>
-                            <td>:</td>
-                            <td> <input type="date" id="tanggallahir" name="tanggallahir" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
-                        </tr>
-                        <tr>
-                            <td> Alamat  </td>
-                        <td>:</td>
-                        <td> <input type="text" id="alamat" name="alamat" style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
-                    </tr>
-                    <tr>
-                        <td> Pegalaman </td>
-                        <td>:</td>
-                        <td><input type="text" id="pengalaman" name="pengalaman"  style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"> </td>
-                    </tr>
-                    <tr>
-                        <td> Prestasi </td>
-                        <td>:</td>
-                        <td><input type="text" id="prestasi" name="prestasi"  style=" margin-top:10px; height: 20px; width: 750px; text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td> Visi </td>
-                        <td>:</td>
-                        <td><input type="text" id="visi" name="visi"  style=" margin-top:10px; height: 50px; width: 750px; text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td> misi </td>
-                        <td>:</td>
-                        <td><input type=" text" id=" misi" name="misi"  style=" margin-top:10px; height: 50px; width: 750px; text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td> program kerja </td>
-                        <td>:</td>
-                        <td><input type=" text" id="programkerja" name="programkerja" style=" margin-top:10px; height: 40px; width: 750px; text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td>Foto kandidat</td>
-                        <td>:</td>
-                        <td><input type="file" id="kandidat_Main_Img" name="kandidat_Main_Img"></td>
-                    </tr>
-                </table>
-                    <tr>
-                        <td > -->
                             <button class="btn-tambah" type="submit" name="submit"> Tambah </button>
-                            <a href="#"><button class="btn-back1"> Kembali </button>
+                            <a href="#"><button class="btn-back"> Kembali </button>
                             </a>
-                        </td>
-                    </tr>
                 </form>
             </div>
             </div>

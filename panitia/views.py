@@ -4,10 +4,7 @@ from django.contrib.auth.decorators import login_required
 from . import models
 from accounts import models as accountsmodels
 from .forms import *
-<<<<<<< HEAD
 # from .forms import KandidatForm, VoteForm
-=======
->>>>>>> deac0a38b8885085be6191a61a897d6739eccde6
 
 # Create your views here.
 @login_required
@@ -43,27 +40,6 @@ def listkandidat(request):
         "data": datakandidat,
         'form': form,
     })
-
-# @login_required
-# def tambahkandidat(request):
-#     if request.POST:
-#         input_namakandidat = request.POST["namakandidat"]
-#         input_nomerurut = request.POST["nomerurut"]
-#         input_tempatlahir = request.POST["tempatlahir"]
-#         input_tanggallahir = request.POST["tanggallahir"]
-#         input_alamat = request.POST["alamat"]
-#         input_pengalaman = request.POST["pengalaman"]
-#         input_prestasi = request.POST["prestasi"]
-#         input_visi = request.POST["visi"]
-#         input_misi = request.POST["misi"]
-#         input_programkerja = request.POST["programkerja"]
-#         # input_kandidat_Main_Img = request.POST["kandidat_Main_Img"]
-#         models.Daftarkandidat.objects.create(namakandidat = input_namakandidat, nomerurut = input_nomerurut, tempatlahir = input_tempatlahir, tanggallahir = input_tanggallahir, alamat = input_alamat, pengalaman = input_pengalaman, prestasi = input_prestasi, visi = input_visi, misi = input_misi, programkerja = input_programkerja)
-    
-#     data = models.Daftarkandidat.objects.all()
-#     return render(request, "daftarkandidat.html",{
-#         "data": data,
-#     })
 
 def tambahkandidat(request):
     form = KandidatForm()
@@ -131,12 +107,11 @@ def testing(request):
     return render(request, 'tes/tes.html')
     
 def tambahvote(request):
-    if request.method == 'POST':
-        form = VoteForm(request.POST, request.FILES)
-
-    if form.is_valid():
-        form.save()
-        return redirect('testing')
-    else:
-        form = VoteForm()
-        return render(request, 'tes.html', {'form' : form})
+    vote = VoteForm()
+    if request.POST:
+        vote = VoteForm(request.POST)
+        if vote.is_valid():
+            vote.save()
+        # return redirect('testing')
+    context = {'form': vote}
+    return render(request, 'tes/tes.html', context)

@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from django.db import models
 
 # Create your models here.
@@ -13,7 +14,7 @@ class Daftarkandidat(models.Model):
     visi = models.TextField(max_length=100, default='')
     misi = models.TextField(max_length=100, default='')
     programkerja = models.TextField(max_length=100, default='')
-    kandidat_Main_Img = models.ImageField (upload_to='images/')
+    kandidat_Main_Img = models.ImageField (upload_to='images/', null=True)
 
     def __str__(self):
         return self.namakandidat

@@ -4,7 +4,7 @@ from django.db import models
 
 class Daftarkandidat(models.Model):
     namakandidat = models.CharField(max_length=100, default='')
-    nomerurut = models.IntegerField(default='')
+    nomerurut = models.IntegerField(default='', unique=True)
     tempatlahir = models.CharField(max_length=100, default='')
     tanggallahir = models.DateField()
     alamat = models.TextField(max_length=100, default='')

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from . import models
+from . import models, forms
 from accounts import models as accountsmodels
 from .forms import *
 # from .forms import KandidatForm, VoteForm
@@ -9,9 +9,9 @@ from .forms import *
 # Create your views here.
 @login_required
 def dash(request):
-    form = VoteForm()
+    form = forms.VoteForm()
     if request.POST:
-        form = VoteForm(request.POST)
+        form = forms.VoteForm(request.POST)
         if form.is_valid():
             form.save()
 
@@ -26,39 +26,40 @@ def dash(request):
 def dashboard(request):
     return render(request, 'dashboard.html')
 
-@login_required
-def listkandidat(request):
-    form = KandidatForm()
-    if request.POST:
-        form = KandidatForm(request.POST)
+# @login_requireds
+def listkandidat(req):
+    form = forms.KandidatForm()
+    if req.POST:
+        form = forms.KandidatForm(req.POST)
         if form.is_valid():
             form.save()
-        return redirect('listkandidat')
-    context = {'form': form}
+            # return redirect('listkandidat')
+        
     datakandidat = models.Daftarkandidat.objects.all()
-    return render(request, 'daftarkandidat.html',{
-        "data": datakandidat,
+    print(datakandidat)
+    return render(req, 'daftarkandidat.html',{
+        'data': datakandidat,
         'form': form,
     })
 
 def tambahkandidat(request):
-    form = KandidatForm()
+    form = forms.KandidatForm()
     if request.POST:
-        form = KandidatForm(request.POST)
+        form = forms.KandidatForm(request.POST)
         if form.is_valid():
             form.save()
         return redirect('listkandidat')
     context = {'form': form}
-    return render(request, 'daftarkandidat.html', context)
+    return render(request, 'tambahkandidat.html', context)
 
-@login_required
+# @login_required
 def detailprofil(request, id):
     detailprofil = models.Daftarkandidat.objects.filter(id = id).first()
     return render(request, 'detailprofil.html', {
         'data': detailprofil,
     })
 
-@login_required
+# @login_required
 def editkandidat(request, id):
     if request.POST:
         
@@ -83,10 +84,10 @@ def editkandidat(request, id):
         'data': editkandidat,
     })
 
-@login_required
+# @login_required
 def delete(request, id):
     models.Daftarkandidat.objects.filter(id = id).delete()
-    return redirect('/panitia/daftarkandidat')
+    return redirect('/panitia/listkandidat')
 
 
 def datapemilih(request):

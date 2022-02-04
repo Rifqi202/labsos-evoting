@@ -13,7 +13,7 @@ urlpatterns = [
     path('editkandidat/<id>/edit', views.editkandidat, name = 'editkandidat'),
     # path('judul/', views.judul, name = 'judul'),
     path('datapemilih/', views.datapemilih, name = 'datapemilih'),
-    path('datavoting/', views.datavoting, name = 'datavoting'),
+    path('hasil/', views.hasil, name = 'hasil_vote'),
     # path('tambahpanitia/', views.tambahpanitia, name = 'tambahpanitia'),
     path ('', views.testing),
     path('tambahvote/', views.tambahvote)

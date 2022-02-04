@@ -136,21 +136,19 @@
                     {{ form.password2 }}<br>
                 </div>
               </div> -->
-              <div class="flex-container" style="font-size: 18px; margin-top: 20px;">
-              <label>
-                <span>Panitia</span>
-                  {{ form.panitia }}
-              </label>
-              <!-- <label style="margin-left: 80px;">
-                <span>Pemilih</span>
-                  {{ form.pemilih }}  -->
-                <div></div>
-              </label>
+              <div class="flex-container" style="font-size: 18px; margin-top: 20px;" aria-required="true">
+                <label>
+                  <span>Panitia</span>
+                    {{ form.panitia }}
+                </label>
+                <label style="margin-left: 80px;">
+                  <span>Pemilih</span>
+                    {{ form.pemilih }}
+                </label>
               </div>
               <span>{{ form.errors }}</span>
               <input type="submit"  value="Register" style="width: 225px;  height: 30px; font-size: 15px; margin-top: 10px; border-radius: 5px; background-color: green; color: white;">
               </form>
-                
       </div>    
     </div>
   </div>

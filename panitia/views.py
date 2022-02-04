@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 
 from . import models, forms
 from accounts import models as accountsmodels
+from pemilih import models as pemilihmodels
 # from .forms import KandidatForm, VoteForm
 
 # Create your views here.
@@ -61,8 +62,6 @@ def detailprofil(request, id):
 # @login_required
 def editkandidat(request, id):
     if request.POST:
-        
-        print(input)
         models.Daftarkandidat.objects.filter(pk = id).update(
         namakandidat = request.POST["namakandidat"],
         nomerurut = request.POST["nomerurut"],
@@ -92,8 +91,9 @@ def delete(request, id):
 def datapemilih(request):
     return render(request, 'datapemilih.html')
 
-def datavoting(request):
-    return render(request, 'datavoting.html')
+def hasil(request):
+    hasil_vote = pemilihmodels.Vote.objects.all()
+    return render(request, 'hasilvote.html', {'hasil': hasil_vote})
 
 def detailprofil(request):
     return render(request, 'detailprofil.html')

@@ -78,9 +78,6 @@
             
             <!-- BOX PILIH -->
             <div class="boxpilih">
-    
-                <!-- FOTO -->
-                
                 {% for k in kandidat %}
                 <div class="boxfoto">
                     <h4 class= "">{{k.nomerurut}}</h4>
@@ -93,66 +90,18 @@
                         <div class="window">
                             <a href="#" class="close-button" title="Close">X</a>
                             <h3 style="margin-top: 25px;;">Apakah Pilihan Anda Sudah Benar?</h3>
-                                <a href="/pemilih/vote/{{k.id}}"><button style="font-weight: bold; color: white; background-color: #0275FC; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
-                                    Iya</button></a>
-                        
-                                <a href="#"><button style="font-weight: bold; color: white; background-color: red; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
-                                    Tidak</button></a>
+                            <a href="{% url 'vote' %}"><button style="font-weight: bold; color: white; background-color: #0275FC; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
+                                Iya</button></a>
+                                <!-- /pemilih/vote/{{k.id}} -->
+                            <a href="#"><button style="font-weight: bold; color: white; background-color: red; margin-top: 0px; width: 75px; height: 30px; border-radius: 5px;">
+                                Tidak</button></a>
                         </div>
                     </div>
-                    <!-- <div id="popup2">
-                        <div class="window">
-                            <form method="post">
-                                {% csrf_token %}
-                                <div>
-                                    <a href="#" class="close-button" title="Close">X</a>
-                                        <label for="password" style="font-size: 18px;">Password</label><br>
-                                        {{ form.password }}<br>
-                                </div>
-                                <input type="submit" value="Submit" style="width: 225px;  height: 30px; font-size: 15px; font-weight: bold; margin-top: 15px; border-radius: 5px; background-color: #0275FC; color: white; ">
-                            </form>
-                        </div>
-    
-                    </div> -->
-    
                 </div>
                 {% endfor %}
-                <!-- <div class="boxfoto">
-                    <h4 class= "">NO.2</h4>
-                    <img class="foto" src="https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png" alt="">
-                    <p>Brozam</p>
-                    <a href="#popup1"><button class="btn-vote">Pilih</button></a>
-    
-                    <div id="popup2">
-                        <div class="window">
-                            <a href="#" class="close-button" title="Close">X</a>
-                            <h3 style="margin-top: 25px;;">Apakah Pilihan Anda Sudah Benar?</h3>
-                                <a href="/"><button class="btn-yes" type="submit">Iya</button></a>
-                                <a href="#"><button class="btn-no">Tidak</button></a>
-                        </div>
-    
-                    </div>
-                     <!-- <div id="popup2">
-                        <div class="window">
-                            <a href="#" class="close-button" title="Close">X</a>
-                            <h3 style="margin-top: 10px;">Masukkan Pin Anda</h3>
-                                <form action="/pemilih/hasilvoting">
-                                    <center>
-                                        <input type="password" id= "psw" name="password"><br>
-                                        <input type="submit" value="submit">
-                                        <input type="submit" formaction="/pemilih/hasilvoting" value="Submit"
-                                        style="margin-top: 10px; width: 75px; height: 25px;border-radius: 5px; color: white; background-color: #0275FC;">
-                                    </center>
-                                </form>
-                        </div>
-    
-                    </div> -->
-    
-                </div> -->
+            </div>
         </div>
     </div>
-
-    
 </section>
 
 

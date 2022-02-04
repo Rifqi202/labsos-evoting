@@ -25,7 +25,7 @@
     </style>
     <div>
             <div class="menu"> 
-                <h2 class="judul">Data Voting</h2>
+                <h2 class="judul">Hasil Vote</h2>
                 <div style="margin-left: 5%; width: 1100px; height: 457px; margin-top: 30px; border:1px solid black;">
                     <h3 class="content" style="text-align: center; margin-top: 20px;">Grafik Perolehan Suara</h3>
                     <div class="bar-chart">
@@ -74,6 +74,12 @@
                 <a href="/panitia"><button class="btn-back">Kembali</button></a>
             
             </div>
+            {% for d in hasil %}
+            <div>
+                {{d.id}}
+                {{d.kandidat}}
+            </div>
+            {% endfor %}
     </div>
 </section>
 

@@ -64,11 +64,7 @@
                     <h2>Tambah Pemilihan</h2>
                     <form method="POST" action="">
                         {% csrf_token %}
-<<<<<<< HEAD
                         {{form.as_p}}
-=======
-                            {{form.as_p}}
->>>>>>> 2c46e773206fb4ef196807d7070883dc20a7cb3e
                         <button class="btn-tambah" type="submit" name="submit"> Tambah </button>
                     </form>
                 </div>
@@ -90,7 +86,7 @@
                 <tr class="tabel">
                     <td class="tabel" style="text-align: center;">{{forloop.counter}}</td>
                     <td class="tabel" style="text-align: center;">{{d.Waktu}}</td>
-                    <td class="tabel" style="text-align: center;">{{d.Judul}}</td>
+                    <td class="tabel" style="text-align: center;"><a href="#" class='namajudul'>{{d.Judul}}</a></td>
                     <td class="tabel" style="text-align: center;">
                         <a href="#popuphapus"><i class='bx bxs-trash' style='color:#ff0303'  ></i></a>
                         <div id="popuphapus">
